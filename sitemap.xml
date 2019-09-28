@@ -3,50 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://worldbeyondlinux.be/tags/blog/</loc>
+    <lastmod>2019-07-27T12:51:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://worldbeyondlinux.be/tags/git/</loc>
+    <lastmod>2019-07-27T12:51:45+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://worldbeyondlinux.be/posts/how-i-run-my-blog-using-github-pages-and-hugo/</loc>
+    <lastmod>2019-07-27T12:51:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://worldbeyondlinux.be/tags/howto/</loc>
+    <lastmod>2019-07-27T12:51:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://worldbeyondlinux.be/tags/hugo/</loc>
     <lastmod>2019-07-27T12:51:45+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://worldbeyondlinux.be/posts/</loc>
     <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://worldbeyondlinux.be/tags/</loc>
     <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://worldbeyondlinux.be/</loc>
     <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://worldbeyondlinux.be/tags/blog/</loc>
-    <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://worldbeyondlinux.be/tags/git/</loc>
-    <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://worldbeyondlinux.be/tags/howto/</loc>
-    <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://worldbeyondlinux.be/tags/hugo/</loc>
-    <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

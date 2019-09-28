@@ -34,9 +34,19 @@ hr {
     padding: 0
 }
 
-audio,canvas,img,video {
-    width: 100%;
-    vertical-align: middle
+img {
+	margin: 10px auto 10px auto;
+	max-width: 100%;
+	display: block;
+}
+
+a img {
+	border:none;
+}
+
+figure {
+	margin: 0;
+	text-align: center;
 }
 
 fieldset {
@@ -62,6 +72,10 @@ blockquote {
 blockquote cite {
     font-size: 70%;
     opacity: .8
+}
+
+blockquote em {
+    font-weight: 600;
 }
 
 a,a:hover {
@@ -104,6 +118,18 @@ h5 {
 h6 {
     font-weight: 300;
     font-size: .9rem
+}
+
+.align-center {
+	text-align: center;
+}
+
+.align-left {
+	text-align: left;
+}
+
+.align-right {
+	text-align: right;
 }
 
 .container {
@@ -282,6 +308,34 @@ ul {
 
 .tag-cloud a {
     margin-right: 15px;
+}
+
+.pagination {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	display: flex;
+	justify-content: space-between;
+}
+
+.pagination li {
+	list-style: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.pagination .page-prev {
+	margin-right: 20px;
+	padding-right: 20px;
+}
+
+.pagination .page-item.page-prev {
+	text-align: left;
+}
+
+.pagination .page-item.page-next {
+	text-align: right;
 }
 
 @media (max-width: 767px) {
