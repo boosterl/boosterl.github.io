@@ -1,6 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://worldbeyondlinux.be/tags/adb/</loc>
+    <lastmod>2019-11-30T11:53:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://worldbeyondlinux.be/tags/android/</loc>
+    <lastmod>2019-11-30T11:53:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://worldbeyondlinux.be/tags/apache/</loc>
+    <lastmod>2019-11-30T11:53:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://worldbeyondlinux.be/posts/how-to-run-apache-on-a-smartwatch/</loc>
+    <lastmod>2019-11-30T11:53:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://worldbeyondlinux.be/posts/</loc>
+    <lastmod>2019-11-30T11:53:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://worldbeyondlinux.be/tags/</loc>
+    <lastmod>2019-11-30T11:53:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://worldbeyondlinux.be/tags/termux/</loc>
+    <lastmod>2019-11-30T11:53:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://worldbeyondlinux.be/</loc>
+    <lastmod>2019-11-30T11:53:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://worldbeyondlinux.be/tags/wearables/</loc>
+    <lastmod>2019-11-30T11:53:16+01:00</lastmod>
+  </url>
   
   <url>
     <loc>https://worldbeyondlinux.be/tags/blog/</loc>
@@ -24,21 +69,6 @@
   
   <url>
     <loc>https://worldbeyondlinux.be/tags/hugo/</loc>
-    <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://worldbeyondlinux.be/posts/</loc>
-    <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://worldbeyondlinux.be/tags/</loc>
-    <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://worldbeyondlinux.be/</loc>
     <lastmod>2019-07-27T12:51:45+00:00</lastmod>
   </url>
   

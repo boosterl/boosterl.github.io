@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on The world beyond Linux</title>
@@ -6,10 +6,55 @@
     <description>Recent content in Tags on The world beyond Linux</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jul 2019 12:51:45 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Nov 2019 11:53:16 +0100</lastBuildDate>
     
 	<atom:link href="https://worldbeyondlinux.be/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>adb</title>
+      <link>https://worldbeyondlinux.be/tags/adb/</link>
+      <pubDate>Sat, 30 Nov 2019 11:53:16 +0100</pubDate>
+      
+      <guid>https://worldbeyondlinux.be/tags/adb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>android</title>
+      <link>https://worldbeyondlinux.be/tags/android/</link>
+      <pubDate>Sat, 30 Nov 2019 11:53:16 +0100</pubDate>
+      
+      <guid>https://worldbeyondlinux.be/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apache</title>
+      <link>https://worldbeyondlinux.be/tags/apache/</link>
+      <pubDate>Sat, 30 Nov 2019 11:53:16 +0100</pubDate>
+      
+      <guid>https://worldbeyondlinux.be/tags/apache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>termux</title>
+      <link>https://worldbeyondlinux.be/tags/termux/</link>
+      <pubDate>Sat, 30 Nov 2019 11:53:16 +0100</pubDate>
+      
+      <guid>https://worldbeyondlinux.be/tags/termux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wearables</title>
+      <link>https://worldbeyondlinux.be/tags/wearables/</link>
+      <pubDate>Sat, 30 Nov 2019 11:53:16 +0100</pubDate>
+      
+      <guid>https://worldbeyondlinux.be/tags/wearables/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>blog</title>
