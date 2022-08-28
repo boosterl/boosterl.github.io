@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>How to Use a Raspberry Pi Instead of a USB Console Cable - The world beyond Linux</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="How to Use a Raspberry Pi Instead of a USB Console Cable" />
+<meta property="og:description" content="As the title says, this article will be about using a Raspberry Pi SBC (whatever model), instead of a USB Console Cable to debug another SBC, router, microcontroller&hellip; The need for this came when I received my MangoPi MQ-Pro, I wanted to try different operating systems for this SBC, but I didn&rsquo;t have access to a USB Console Cable, at least not one that was 3.3V tolerant. I wanted to have access to the serial console because a lot of OS images for the MangoPi, at the time of writing this article, didn&rsquo;t have HDMI drivers." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://worldbeyondlinux.be/posts/how-to-use-a-pi-instead-of-a-usb-console-cable/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-28T11:39:44+02:00" />
+<meta property="article:modified_time" content="2022-08-28T11:39:44+02:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Use a Raspberry Pi Instead of a USB Console Cable"/>
+<meta name="twitter:description" content="As the title says, this article will be about using a Raspberry Pi SBC (whatever model), instead of a USB Console Cable to debug another SBC, router, microcontroller&hellip; The need for this came when I received my MangoPi MQ-Pro, I wanted to try different operating systems for this SBC, but I didn&rsquo;t have access to a USB Console Cable, at least not one that was 3.3V tolerant. I wanted to have access to the serial console because a lot of OS images for the MangoPi, at the time of writing this article, didn&rsquo;t have HDMI drivers."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:500,100,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.css" /><script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script><script src="https://worldbeyondlinux.be/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title">The world beyond Linux</h1>
+	<div class="site-description"><h2>My personal blog about Linux, FOSS, personal projects and other things</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/boosterl" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/boosterlynck" title="Twitter"><i data-feather="twitter"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">How to Use a Raspberry Pi Instead of a USB Console Cable</h1>
+			<div class="meta">Posted at &mdash; Aug 28, 2022</div>
+		</div>
+
+		<div class="markdown">
+			<p>As the title says, this article will be about using a Raspberry Pi SBC (whatever model), instead of a USB Console Cable to debug another SBC, router, microcontroller&hellip; The need for this came when I received my <a href="https://mangopi.cc/mangopi_mqpro">MangoPi MQ-Pro</a>, I wanted to try different operating systems for this SBC, but I didn&rsquo;t have access to a USB Console Cable, at least not one that was 3.3V tolerant. I wanted to have access to the serial console because a lot of OS images for the MangoPi, at the time of writing this article, didn&rsquo;t have HDMI drivers. I have already used a Raspberry Pi to flash and interact with micropython on an ESP8266, so I thought, why not use the same method to interact with my new MangoPi.</p>
+<p>This method can also be used to interact with the serial console of another Raspberry Pi, ESP8266, router&hellip; or any other 3.3V tolerant UART.</p>
+<h2 id="wiring-things-up">Wiring things up</h2>
+<p>The wiring for this setup is really easy. The grounds of the two devices should be connected to each other, and the RX of the Raspberry Pi should be connected to the TX of the device to debug (a MangoPi in this case), and vice versa for the TX. The MangoPi uses the same 40-pin GPIO layout as a Raspberry Pi, so the same awesome <a href="https://pinout.xyz/#">pinout guide</a> can be used as the Raspberry Pi. For other boards (ESP8266, routers, microcontrollers&hellip;), the documentation of those devices should be consulted.</p>
+<p>The wiring should look like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Raspberry Pi GND ---&gt; MangoPi GND
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Raspberry Pi TX  ---&gt; MangoPi RX
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Raspberry Pi RX  ---&gt; MangoPi TX
+</span></span></code></pre></div><p><img src="images/wiring.jpg" alt="Wiring"></p>
+<h2 id="enabling-the-serial-hardware-on-a-raspberry-pi">Enabling the serial hardware on a Raspberry Pi</h2>
+<p>The Raspberry Pi can be easily configured to enable the serial hardware with the <code>raspi-config</code> utility at the time of writing this article.</p>
+<ol>
+<li>Start raspi-config: <code>sudo raspi-config</code></li>
+<li>Select option 3 - Interface Options.</li>
+<li>Select option P6 - Serial Port.</li>
+<li>At the prompt <code>Would you like a login shell to be accessible over serial?</code> answer &lsquo;No&rsquo;</li>
+<li>At the prompt <code>Would you like the serial port hardware to be enabled? answer</code> &lsquo;Yes&rsquo;</li>
+<li>Exit raspi-config and reboot the Raspberry Pi for changes to take effect.</li>
+</ol>
+<h3 id="an-important-note-about-raspberry-pis-with-built-in-bluetooth-3ba-4-400-zero-2w">An important note about Raspberry Pi&rsquo;s with built-in Bluetooth (3B(+)/A+, 4, 400, Zero (2)W)</h3>
+<p>As described on the <a href="https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts">Raspbery Pi docs</a>, the Raspberry Pi has two types of UART; PL011 and mini UART. On Pi&rsquo;s without built-in Bluetooth, the PL011 is the primary UART. On Pi&rsquo;s with built-in Bluetooth, the mini UART is the primary UART, while the PL011 is connected to the wireless LAN/Bluetooth controller. The problem is that the limitations of the mini UART causes issues when accessing the serial console of another device. When accessing the serial console of the MangoPi for example; the boot-logs are shown, but after this the console just hangs. Of course, there is a solution for this. If you don&rsquo;t need Bluetooth, the Bluetooth hardware can be disabled, so the primary UART becomes the PL011. This can be done by adding <code>dtoverlay=disable-bt</code> to the <code>/boot/config.txt</code> file and disabling the service that initialises the modem: <code>sudo systemctl disable hciuart</code>. After a reboot the primary UART is also the PL011.</p>
+<h2 id="accessing-the-serial-console">Accessing the serial console</h2>
+<p>Now all the preparation is out of the way, nothing stands in the way for us to access the serial console of our MangoPi (or other device) via our Raspberry Pi. I personally like the program picocom to access serial devices. This can easily be installed on Raspbian:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo apt install picocom
+</span></span></code></pre></div><p>To access our device, we just need to execute one of the following commands:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>picocom -b 115200 /dev/ttyAMA0
+</span></span><span style="display:flex;"><span># or
+</span></span><span style="display:flex;"><span>picocom -b 115200 /dev/serial0 # serial0 is just a symlink to the first UART (ttyAMA0 in our case, or ttyS0 if you didn&#39;t disable bluetooth on a Pi with Bluetooth)
+</span></span></code></pre></div><p>Now you should have access to the serial console of your 3.3V tolerant device in need for debugging! To escape the console, the hot-key for picocom is <code>Ctrl+A</code>, so to exit, just press <code>Ctrl+A, Ctrl+X</code>.</p>
+<p>Enjoy your serial console!</p>
+
+		</div></div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div><a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

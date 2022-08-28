@@ -6,11 +6,7 @@
     <description>Recent content in wearables on The world beyond Linux</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Nov 2019 11:53:16 +0100</lastBuildDate>
-    
-	<atom:link href="https://worldbeyondlinux.be/tags/wearables/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 30 Nov 2019 11:53:16 +0100</lastBuildDate><atom:link href="https://worldbeyondlinux.be/tags/wearables/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to run the Apache webserver on a five year old Android smartwatch</title>
       <link>https://worldbeyondlinux.be/posts/how-to-run-apache-on-a-smartwatch/</link>

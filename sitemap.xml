@@ -1,85 +1,65 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>https://worldbeyondlinux.be/posts/how-to-use-a-pi-instead-of-a-usb-console-cable/</loc>
+    <lastmod>2022-08-28T11:39:44+02:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/mangopi-mq-pro/</loc>
+    <lastmod>2022-08-28T11:39:44+02:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/posts/</loc>
+    <lastmod>2022-08-28T11:39:44+02:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/raspberry-pi/</loc>
+    <lastmod>2022-08-28T11:39:44+02:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/serial/</loc>
+    <lastmod>2022-08-28T11:39:44+02:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/</loc>
+    <lastmod>2022-08-28T11:39:44+02:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/</loc>
+    <lastmod>2022-08-28T11:39:44+02:00</lastmod>
+  </url><url>
     <loc>https://worldbeyondlinux.be/tags/adb/</loc>
     <lastmod>2019-11-30T11:53:16+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://worldbeyondlinux.be/tags/android/</loc>
     <lastmod>2019-11-30T11:53:16+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://worldbeyondlinux.be/tags/apache/</loc>
     <lastmod>2019-11-30T11:53:16+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://worldbeyondlinux.be/posts/how-to-run-apache-on-a-smartwatch/</loc>
     <lastmod>2019-11-30T11:53:16+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://worldbeyondlinux.be/posts/</loc>
-    <lastmod>2019-11-30T11:53:16+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://worldbeyondlinux.be/tags/</loc>
-    <lastmod>2019-11-30T11:53:16+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://worldbeyondlinux.be/tags/termux/</loc>
     <lastmod>2019-11-30T11:53:16+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://worldbeyondlinux.be/</loc>
-    <lastmod>2019-11-30T11:53:16+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://worldbeyondlinux.be/tags/wearables/</loc>
     <lastmod>2019-11-30T11:53:16+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://worldbeyondlinux.be/tags/blog/</loc>
     <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://worldbeyondlinux.be/tags/git/</loc>
     <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://worldbeyondlinux.be/posts/how-i-run-my-blog-using-github-pages-and-hugo/</loc>
     <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://worldbeyondlinux.be/tags/howto/</loc>
     <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://worldbeyondlinux.be/tags/hugo/</loc>
     <lastmod>2019-07-27T12:51:45+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://worldbeyondlinux.be/about/</loc>
     <lastmod>2019-07-14T12:24:53+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://worldbeyondlinux.be/posts/my-first-post/</loc>
     <lastmod>2019-04-24T21:12:51+02:00</lastmod>
   </url>
-  
 </urlset>

@@ -6,11 +6,7 @@
     <description>Recent content in blog on The world beyond Linux</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jul 2019 12:51:45 +0000</lastBuildDate>
-    
-	<atom:link href="https://worldbeyondlinux.be/tags/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 27 Jul 2019 12:51:45 +0000</lastBuildDate><atom:link href="https://worldbeyondlinux.be/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I Run My Blog Using Github Pages and Hugo</title>
       <link>https://worldbeyondlinux.be/posts/how-i-run-my-blog-using-github-pages-and-hugo/</link>
