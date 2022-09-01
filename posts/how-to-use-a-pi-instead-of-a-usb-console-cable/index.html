@@ -13,16 +13,20 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to Use a Raspberry Pi Instead of a USB Console Cable"/>
 <meta name="twitter:description" content="As the title says, this article will be about using a Raspberry Pi SBC (whatever model), instead of a USB Console Cable to debug another SBC, router, microcontroller&hellip; The need for this came when I received my MangoPi MQ-Pro, I wanted to try different operating systems for this SBC, but I didn&rsquo;t have access to a USB Console Cable, at least not one that was 3.3V tolerant. I wanted to have access to the serial console because a lot of OS images for the MangoPi, at the time of writing this article, didn&rsquo;t have HDMI drivers."/>
-<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:500,100,300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.css" /><script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script><script src="https://worldbeyondlinux.be/js/main.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.css" /><link rel="stylesheet" type="text/css" href="https://worldbeyondlinux.be/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://worldbeyondlinux.be/js/main.js"></script>
 </head>
 
 <body>
 	<div class="container wrapper post">
 		<div class="header">
-	<h1 class="site-title">The world beyond Linux</h1>
+	<base href="https://worldbeyondlinux.be/">
+	<h1 class="site-title"><a href="https://worldbeyondlinux.be/">The world beyond Linux</a></h1>
 	<div class="site-description"><h2>My personal blog about Linux, FOSS, personal projects and other things</h2><nav class="nav social">
 			<ul class="flat"><a href="https://github.com/boosterl" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/boosterlynck" title="Twitter"><i data-feather="twitter"></i></a></ul>
 		</nav>
@@ -64,7 +68,7 @@
 </span></span><span style="display:flex;"><span>Raspberry Pi TX  ---&gt; MangoPi RX
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Raspberry Pi RX  ---&gt; MangoPi TX
-</span></span></code></pre></div><p><img src="images/wiring.jpg" alt="Wiring"></p>
+</span></span></code></pre></div><p><img src="/posts/how-to-use-a-pi-instead-of-a-usb-console-cable/images/wiring.jpg" alt="Wiring"></p>
 <h2 id="enabling-the-serial-hardware-on-a-raspberry-pi">Enabling the serial hardware on a Raspberry Pi</h2>
 <p>The Raspberry Pi can be easily configured to enable the serial hardware with the <code>raspi-config</code> utility at the time of writing this article.</p>
 <ol>
@@ -87,12 +91,33 @@
 </span></span></code></pre></div><p>Now you should have access to the serial console of your 3.3V tolerant device in need for debugging! To escape the console, the hot-key for picocom is <code>Ctrl+A</code>, so to exit, just press <code>Ctrl+A, Ctrl+X</code>.</p>
 <p>Enjoy your serial console!</p>
 
-		</div></div>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/mangopi-mq-pro">mangopi-mq-pro</a></li>
+								
+								<li><a href="/tags/raspberry-pi">raspberry-pi</a></li>
+								
+								<li><a href="/tags/serial">serial</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div><a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
+
+
 
 <script>feather.replace()</script>
 </body>

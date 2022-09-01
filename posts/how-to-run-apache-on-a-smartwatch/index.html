@@ -15,16 +15,20 @@ I like using technology in ways that makes my live easier. That&rsquo;s why I bo
 <meta name="twitter:title" content="How to run the Apache webserver on a five year old Android smartwatch"/>
 <meta name="twitter:description" content="The first question you might ask yourself when reading the title of this article is; why would you want to this. My answer to that question is, why wouldn&rsquo;t you?
 I like using technology in ways that makes my live easier. That&rsquo;s why I bought my Motorola Moto 360 in the first place, more than five years ago. It has indeed made my life easier in a few ways, quickly reading a message, discarding when necessary, or pulling out my phone when I need/want to reply."/>
-<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:500,100,300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.css" /><script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script><script src="https://worldbeyondlinux.be/js/main.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.css" /><link rel="stylesheet" type="text/css" href="https://worldbeyondlinux.be/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://worldbeyondlinux.be/js/main.js"></script>
 </head>
 
 <body>
 	<div class="container wrapper post">
 		<div class="header">
-	<h1 class="site-title">The world beyond Linux</h1>
+	<base href="https://worldbeyondlinux.be/">
+	<h1 class="site-title"><a href="https://worldbeyondlinux.be/">The world beyond Linux</a></h1>
 	<div class="site-description"><h2>My personal blog about Linux, FOSS, personal projects and other things</h2><nav class="nav social">
 			<ul class="flat"><a href="https://github.com/boosterl" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/boosterlynck" title="Twitter"><i data-feather="twitter"></i></a></ul>
 		</nav>
@@ -132,12 +136,37 @@ To accomplish these steps, you will also need the IP address of your watch (to c
 </span></span><span style="display:flex;"><span>apachectl start
 </span></span></code></pre></div><p>It&rsquo;s as simple as that, the apache server listens on port 8080, just point any machine on the same network as your watch to your watch&rsquo;s IP address, and you should see <code>It works!</code>.</p>
 
-		</div></div>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/apache">apache</a></li>
+								
+								<li><a href="/tags/termux">termux</a></li>
+								
+								<li><a href="/tags/adb">adb</a></li>
+								
+								<li><a href="/tags/android">android</a></li>
+								
+								<li><a href="/tags/wearables">wearables</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div><a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
+
+
 
 <script>feather.replace()</script>
 </body>
