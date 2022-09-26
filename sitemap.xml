@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://worldbeyondlinux.be/tags/box64/</loc>
+    <lastmod>2022-09-19T18:44:12+02:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/mangopi-mq-pro/</loc>
+    <lastmod>2022-09-19T18:44:12+02:00</lastmod>
+  </url><url>
     <loc>https://worldbeyondlinux.be/posts/</loc>
     <lastmod>2022-09-19T18:44:12+02:00</lastmod>
   </url><url>
+    <loc>https://worldbeyondlinux.be/tags/risc-v/</loc>
+    <lastmod>2022-09-19T18:44:12+02:00</lastmod>
+  </url><url>
     <loc>https://worldbeyondlinux.be/posts/running-x86-64-software-on-riscv-using-box64/</loc>
+    <lastmod>2022-09-19T18:44:12+02:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/</loc>
     <lastmod>2022-09-19T18:44:12+02:00</lastmod>
   </url><url>
     <loc>https://worldbeyondlinux.be/</loc>
@@ -14,16 +26,10 @@
     <loc>https://worldbeyondlinux.be/posts/how-to-use-a-pi-instead-of-a-usb-console-cable/</loc>
     <lastmod>2022-08-28T11:39:44+02:00</lastmod>
   </url><url>
-    <loc>https://worldbeyondlinux.be/tags/mangopi-mq-pro/</loc>
-    <lastmod>2022-08-28T11:39:44+02:00</lastmod>
-  </url><url>
     <loc>https://worldbeyondlinux.be/tags/raspberry-pi/</loc>
     <lastmod>2022-08-28T11:39:44+02:00</lastmod>
   </url><url>
     <loc>https://worldbeyondlinux.be/tags/serial/</loc>
-    <lastmod>2022-08-28T11:39:44+02:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/tags/</loc>
     <lastmod>2022-08-28T11:39:44+02:00</lastmod>
   </url><url>
     <loc>https://worldbeyondlinux.be/tags/adb/</loc>
