@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Exploring non-Linux Based Operating Systems on Allwinner D1 - The world beyond Linux</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Exploring non-Linux Based Operating Systems on Allwinner D1" />
+<meta property="og:description" content="Introduction As of writing this article, there are a few choices of operating systems to choose from for the Allwinner D1. In the future, more choices will probably become available. In this article we will take a closer look into FreeBSD and xv6 for the Allwinner D1. I will use a MangoPi MQ-Pro to test these operating systems.
+FreeBSD For many people, FreeBSD won&rsquo;t need an introduction. FreeBSD is a free and open-source Unix-like operating system first released in 1993." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://worldbeyondlinux.be/posts/exploring-non-linux-oses-on-d1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-31T16:28:12+01:00" />
+<meta property="article:modified_time" content="2022-10-31T16:28:12+01:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Exploring non-Linux Based Operating Systems on Allwinner D1"/>
+<meta name="twitter:description" content="Introduction As of writing this article, there are a few choices of operating systems to choose from for the Allwinner D1. In the future, more choices will probably become available. In this article we will take a closer look into FreeBSD and xv6 for the Allwinner D1. I will use a MangoPi MQ-Pro to test these operating systems.
+FreeBSD For many people, FreeBSD won&rsquo;t need an introduction. FreeBSD is a free and open-source Unix-like operating system first released in 1993."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.css" /><link rel="stylesheet" type="text/css" href="https://worldbeyondlinux.be/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://worldbeyondlinux.be/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://worldbeyondlinux.be/">
+	<h1 class="site-title"><a href="https://worldbeyondlinux.be/">The world beyond Linux</a></h1>
+	<div class="site-description"><h2>My personal blog about Linux, FOSS, personal projects and other things</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/boosterl" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/boosterlynck" title="Twitter"><i data-feather="twitter"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Exploring non-Linux Based Operating Systems on Allwinner D1</h1>
+			<div class="meta">Posted at &mdash; Oct 31, 2022</div>
+		</div>
+
+		<div class="markdown">
+			<h1 id="introduction">Introduction</h1>
+<p>As of writing this article, there are a few choices of operating systems to choose from for the Allwinner D1.
+In the future, more choices will probably become available.
+In this article we will take a closer look into <a href="https://github.com/freebsd-d1/freebsd-d1">FreeBSD</a> and <a href="https://github.com/michaelengel/xv6-d1">xv6</a> for the Allwinner D1.
+I will use a <a href="https://mangopi.org/mangopi_mqpro">MangoPi MQ-Pro</a> to test these operating systems.</p>
+<h1 id="freebsd">FreeBSD</h1>
+<p>For many people, FreeBSD won&rsquo;t need an introduction.
+FreeBSD is a free and open-source Unix-like operating system first released in 1993.
+To create an image ready to flash on an SD card, access to a FreeBSD (virtual) machine is recommended.
+On this machine, the <a href="https://github.com/freebsd-d1/freebsd-d1/blob/main/README.md">readme</a> of the project can be followed.
+This will result in a <code>freebsd-d1.img</code>-img file in the working directory.
+This image can then be flashed on an SD card in the usual fashion; <code>dd if=freebsd-d1.img of=/dev/&lt;SD card location&gt;</code>.
+When inserting the image, and starting your board, a serial connection will also be necessary, because as far as I can tell, and at the moment of writing this article, no HDMI-support is present.
+I used a Raspberry Pi to open a serial console, more information on how I did this, can be found in <a href="/posts/how-to-use-a-pi-instead-of-a-usb-console-cable">this</a> article.
+After staring up the board with an open console, you should be greeted with a FreeBSD login screen:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>FreeBSD/riscv (freebsd-d1) (rcons)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>login: root
+</span></span><span style="display:flex;"><span>Sep 20 16:09:29 freebsd-d1 login[1101]: ROOT LOGIN (root) ON rcons
+</span></span><span style="display:flex;"><span>Last login: Tue Sep 20 16:09:23 on rcons
+</span></span><span style="display:flex;"><span>FreeBSD 14.0-CURRENT #1 n256327-be9d9f3eb4c3: Tue Sep 20 18:00:54 CEST 2022     root@freebsd-riscv-builder:/root/freebsd-d1/freebsd/obj/riscv.riscv64/sys/GENERIC
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Welcome to FreeBSD!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Release Notes, Errata: https://www.FreeBSD.org/releases/
+</span></span><span style="display:flex;"><span>Security Advisories:   https://www.FreeBSD.org/security/
+</span></span><span style="display:flex;"><span>FreeBSD Handbook:      https://www.FreeBSD.org/handbook/
+</span></span><span style="display:flex;"><span>FreeBSD FAQ:           https://www.FreeBSD.org/faq/
+</span></span><span style="display:flex;"><span>Questions List:        https://www.FreeBSD.org/lists/questions/
+</span></span><span style="display:flex;"><span>FreeBSD Forums:        https://forums.FreeBSD.org/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Documents installed with the system are in the /usr/local/share/doc/freebsd/
+</span></span><span style="display:flex;"><span>directory, or can be installed later with:  pkg install en-freebsd-doc
+</span></span><span style="display:flex;"><span>For other languages, replace &#34;en&#34; with a language code like de or fr.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Show the version of FreeBSD installed:  freebsd-version ; uname -a
+</span></span><span style="display:flex;"><span>Please include that output and any error messages when posting questions.
+</span></span><span style="display:flex;"><span>Introduction to manual pages:  man man
+</span></span><span style="display:flex;"><span>FreeBSD directory layout:      man hier
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>To change this login announcement, see motd(5).
+</span></span><span style="display:flex;"><span>root@freebsd-d1:~ # uname -a
+</span></span><span style="display:flex;"><span>FreeBSD freebsd-d1 14.0-CURRENT FreeBSD 14.0-CURRENT #1 n256327-be9d9f3eb4c3: Tue Sep 20 18:00:54 CEST 2022     root@freebsd-riscv-builder:/root/freebsd-d1/freebsd/obj/riscv.riscv64/sys/GENERIC riscv
+</span></span><span style="display:flex;"><span>root@freebsd-d1:~ # file /usr/bin/vi
+</span></span><span style="display:flex;"><span>/usr/bin/vi: ELF 64-bit LSB executable, UCB RISC-V, RVC, double-float ABI, version 1 (SYSV), dynamically linked, interpreter /libexec/ld-elf.so.1, for FreeBSD 14.0 (1400062), FreeBSD-style, stripped
+</span></span><span style="display:flex;"><span>root@freebsd-d1:~ #
+</span></span></code></pre></div><p>From this point on, people with more FreeBSD experience than me could jump in and start hacking, setting up a network stack etc.
+The built-in WiFi adapter does not work out of the box, a USB to ethernet adapter which I had lying around, also didn&rsquo;t work.
+But I&rsquo;m sure FreeBSD experts could quickly create a setup for their needs.</p>
+<h1 id="xv6">xv6</h1>
+<p>I can&rsquo;t introduce xv6 better than the developers do on their <a href="https://github.com/michaelengel/xv6-d1">GitHub</a> repository:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>xv6 is a re-implementation of Dennis Ritchie&#39;s and Ken Thompson&#39;s Unix
+</span></span><span style="display:flex;"><span>Version 6 (v6).  xv6 loosely follows the structure and style of v6,
+</span></span><span style="display:flex;"><span>but is implemented for a modern RISC-V multiprocessor using ANSI C.
+</span></span></code></pre></div><p>Getting xv6 up and running is a case of following the <a href="https://github.com/michaelengel/xv6-d1/blob/main/README_D1.txt">guide</a> in the root of the repository.
+You do also need to have <a href="https://github.com/xboot/xfel">xfel</a> on your computer.
+This is a tool which can be used to communicate with Allwinner based devices in <a href="https://linux-sunxi.org/FEL">FEL mode</a>.
+Starting up your Allwinner D1 based board in FEL mode can be as easy as powering the board without an SD card inserted, as long as there is no other storage (SPI flash, eMMC etc.) available.
+On my MangoPi MQ-Pro this method definitely works, since I don&rsquo;t have any SPI soldered to the board.
+You can read more about possible ways to trigger FEL mode <a href="https://linux-sunxi.org/FEL#Triggering_FEL_mode">here</a>.
+To communicate with FEL, you must connect your board with your computer via the USB OTG connector on the board.
+You can verify whether the board is connected, and in FEL mode using <code>lsusb</code> and <code>dmesg</code>.</p>
+<p>After triggering FEL mode, and having a serial console available to your D1 board, and having a xv6-image compiled, the image can be started like so:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ xfel ddr d1
+</span></span><span style="display:flex;"><span>Initial ddr controller succeeded
+</span></span><span style="display:flex;"><span>$ xfel write 0x40000000 ../xv6-d1/kernel/kernel.bin
+</span></span><span style="display:flex;"><span>100% [================================================] 1.006 MB, 397.628 KB/s
+</span></span><span style="display:flex;"><span>$ xfel exec 0x40000000
+</span></span></code></pre></div><p>The <code>xfel write</code> command is slightly different than the command in the xv6 repository, but this is because of a change in the <code>xfel</code>-tool.</p>
+<p>There is one caveat, the serial console needs an extra argument to display the xv6-shell correctly.
+For picocom, the argument looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>picocom -b 115200 /dev/serial0  --imap lfcrlf
+</span></span></code></pre></div><p>This maps linefeed to carriage return + linefeed.
+Otherwise, the serial output could quickly become a mess.</p>
+<p>On the serial console you should be greeted with a very basic shell into the xv6 operating system:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>xv6 kernel is booting
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>init: starting sh
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>.              1 1 1024
+</span></span><span style="display:flex;"><span>..             1 1 1024
+</span></span><span style="display:flex;"><span>README         2 2 2059
+</span></span><span style="display:flex;"><span>cat            2 3 23392
+</span></span><span style="display:flex;"><span>echo           2 4 22232
+</span></span><span style="display:flex;"><span>forktest       2 5 13000
+</span></span><span style="display:flex;"><span>grep           2 6 26544
+</span></span><span style="display:flex;"><span>init           2 7 23048
+</span></span><span style="display:flex;"><span>kill           2 8 22152
+</span></span><span style="display:flex;"><span>ln             2 9 22032
+</span></span><span style="display:flex;"><span>ls             2 10 25576
+</span></span><span style="display:flex;"><span>mkdir          2 11 22288
+</span></span><span style="display:flex;"><span>rm             2 12 22280
+</span></span><span style="display:flex;"><span>sh             2 13 40296
+</span></span><span style="display:flex;"><span>stressfs       2 14 23264
+</span></span><span style="display:flex;"><span>usertests      2 15 147600
+</span></span><span style="display:flex;"><span>grind          2 16 36776
+</span></span><span style="display:flex;"><span>wc             2 17 24384
+</span></span><span style="display:flex;"><span>zombie         2 18 21536
+</span></span><span style="display:flex;"><span>console        3 19 0
+</span></span><span style="display:flex;"><span>$ echo Hello, world! &gt; hi   
+</span></span><span style="display:flex;"><span>$ cat hi
+</span></span><span style="display:flex;"><span>Hello, world!
+</span></span><span style="display:flex;"><span>$ grep world hi
+</span></span><span style="display:flex;"><span>Hello, world!
+</span></span><span style="display:flex;"><span>$ grep xv6 README
+</span></span><span style="display:flex;"><span>xv6 is a re-implementation of Dennis Ritchie&#39;s and Ken Thompson&#39;s Unix
+</span></span><span style="display:flex;"><span>Version 6 (v6).  xv6 loosely follows the structure and style of v6,
+</span></span><span style="display:flex;"><span>xv6 is inspired by John Lions&#39;s Commentary on UNIX 6th Edition (Peer
+</span></span><span style="display:flex;"><span>The code in the files that constitute xv6 is
+</span></span><span style="display:flex;"><span>(kaashoek,rtm@mit.edu). The main purpose of xv6 is as a teaching
+</span></span><span style="display:flex;"><span>$ wc README
+</span></span><span style="display:flex;"><span>45 295 2059 README
+</span></span><span style="display:flex;"><span>$ wc -l README
+</span></span><span style="display:flex;"><span>wc: cannot open -l
+</span></span><span style="display:flex;"><span>$ wc hi
+</span></span><span style="display:flex;"><span>1 2 14 hi
+</span></span><span style="display:flex;"><span>$ mkdir hello
+</span></span><span style="display:flex;"><span>$ echo Hello, from a dir &gt; hello/hi_again
+</span></span><span style="display:flex;"><span>$ ls hello    
+</span></span><span style="display:flex;"><span>.              1 20 48
+</span></span><span style="display:flex;"><span>..             1 1 1024
+</span></span><span style="display:flex;"><span>hi_again       2 21 18
+</span></span><span style="display:flex;"><span>$ cat hello/hi_again
+</span></span><span style="display:flex;"><span>Hello, from a dir
+</span></span><span style="display:flex;"><span>$ rm hello/hi_again
+</span></span><span style="display:flex;"><span>$ rm hello
+</span></span></code></pre></div><p>As you can see, some very basic, but fundamental Unix tools are available, and work!</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/mangopi-mq-pro">mangopi-mq-pro</a></li>
+								
+								<li><a href="/tags/risc-v">risc-v</a></li>
+								
+								<li><a href="/tags/freebsd">freebsd</a></li>
+								
+								<li><a href="/tags/xv6">xv6</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

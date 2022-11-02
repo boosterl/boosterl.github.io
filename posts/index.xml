@@ -6,7 +6,17 @@
     <description>Recent content in Posts on The world beyond Linux</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Sep 2022 18:44:12 +0200</lastBuildDate><atom:link href="https://worldbeyondlinux.be/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Oct 2022 16:28:12 +0100</lastBuildDate><atom:link href="https://worldbeyondlinux.be/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploring non-Linux Based Operating Systems on Allwinner D1</title>
+      <link>https://worldbeyondlinux.be/posts/exploring-non-linux-oses-on-d1/</link>
+      <pubDate>Mon, 31 Oct 2022 16:28:12 +0100</pubDate>
+      
+      <guid>https://worldbeyondlinux.be/posts/exploring-non-linux-oses-on-d1/</guid>
+      <description>Introduction As of writing this article, there are a few choices of operating systems to choose from for the Allwinner D1. In the future, more choices will probably become available. In this article we will take a closer look into FreeBSD and xv6 for the Allwinner D1. I will use a MangoPi MQ-Pro to test these operating systems.
+FreeBSD For many people, FreeBSD won&amp;rsquo;t need an introduction. FreeBSD is a free and open-source Unix-like operating system first released in 1993.</description>
+    </item>
+    
     <item>
       <title>Running x86_64 Software on RISC-V Using Box64</title>
       <link>https://worldbeyondlinux.be/posts/running-x86-64-software-on-riscv-using-box64/</link>
