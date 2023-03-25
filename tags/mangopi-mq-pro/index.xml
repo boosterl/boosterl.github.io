@@ -6,7 +6,16 @@
     <description>Recent content in mangopi-mq-pro on The world beyond Linux</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Oct 2022 16:28:12 +0100</lastBuildDate><atom:link href="https://worldbeyondlinux.be/tags/mangopi-mq-pro/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Mar 2023 17:17:55 +0100</lastBuildDate><atom:link href="https://worldbeyondlinux.be/tags/mangopi-mq-pro/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up bluetooth on the MangoPi MQ-Pro, and testing it out with a bluetooth access point</title>
+      <link>https://worldbeyondlinux.be/posts/bluetooth-on-the-mango-pi/</link>
+      <pubDate>Sat, 25 Mar 2023 17:17:55 +0100</pubDate>
+      
+      <guid>https://worldbeyondlinux.be/posts/bluetooth-on-the-mango-pi/</guid>
+      <description>I received my MangoPi MQ-Pro a few months ago, and was very eager to test out all the hardware which I use the most on SBC&amp;rsquo;s. Bluetooth is not one of the features I use a lot on SBC&amp;rsquo;s. But after having tested out a lot of operating systems and hardware features of the board, I decided to also try and see what the status of bluetooth on the board was.</description>
+    </item>
+    
     <item>
       <title>Exploring non-Linux Based Operating Systems on Allwinner D1</title>
       <link>https://worldbeyondlinux.be/posts/exploring-non-linux-oses-on-d1/</link>

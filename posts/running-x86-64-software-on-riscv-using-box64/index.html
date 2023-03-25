@@ -9,7 +9,6 @@
 <meta property="og:url" content="https://worldbeyondlinux.be/posts/running-x86-64-software-on-riscv-using-box64/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-09-19T18:44:12+02:00" />
 <meta property="article:modified_time" content="2022-09-19T18:44:12+02:00" />
-
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Running x86_64 Software on RISC-V Using Box64"/>
 <meta name="twitter:description" content="In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a MangoPi MQ-Pro. We will be using an awesome piece of software called Box64. Basically this software runs x86_64 binaries through an emulator, but with a twist; it uses the native versions of some &ldquo;system&rdquo; libraries, like libc, libm, SDL, and OpenGL, like described in the README of the project:"/>
@@ -98,7 +97,7 @@ Our C-program looks like this:</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#c00;font-weight:bold"></span>
 </span></span><span style="display:flex;"><span><span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span>()
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  printf(<span style="color:#d20;background-color:#fff0f0">&#34;Hello, world!</span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0">&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#06b;font-weight:bold">printf</span>(<span style="color:#d20;background-color:#fff0f0">&#34;Hello, world!</span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0">&#34;</span>);
 </span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">0</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>We can then compile this program with gcc using:</p>

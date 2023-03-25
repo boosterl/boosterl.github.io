@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://worldbeyondlinux.be/tags/bluetooth/</loc>
+    <lastmod>2023-03-25T17:17:55+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/mangopi-mq-pro/</loc>
+    <lastmod>2023-03-25T17:17:55+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/posts/</loc>
+    <lastmod>2023-03-25T17:17:55+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/risc-v/</loc>
+    <lastmod>2023-03-25T17:17:55+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/posts/bluetooth-on-the-mango-pi/</loc>
+    <lastmod>2023-03-25T17:17:55+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/</loc>
+    <lastmod>2023-03-25T17:17:55+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/</loc>
+    <lastmod>2023-03-25T17:17:55+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/ubuntu/</loc>
+    <lastmod>2023-03-25T17:17:55+01:00</lastmod>
+  </url><url>
     <loc>https://worldbeyondlinux.be/posts/exploring-non-linux-oses-on-d1/</loc>
     <lastmod>2022-10-31T16:28:12+01:00</lastmod>
   </url><url>
     <loc>https://worldbeyondlinux.be/tags/freebsd/</loc>
-    <lastmod>2022-10-31T16:28:12+01:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/tags/mangopi-mq-pro/</loc>
-    <lastmod>2022-10-31T16:28:12+01:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/posts/</loc>
-    <lastmod>2022-10-31T16:28:12+01:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/tags/risc-v/</loc>
-    <lastmod>2022-10-31T16:28:12+01:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/tags/</loc>
-    <lastmod>2022-10-31T16:28:12+01:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/</loc>
     <lastmod>2022-10-31T16:28:12+01:00</lastmod>
   </url><url>
     <loc>https://worldbeyondlinux.be/tags/xv6/</loc>
