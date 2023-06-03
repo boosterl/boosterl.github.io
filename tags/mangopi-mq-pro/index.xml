@@ -6,7 +6,17 @@
     <description>Recent content in mangopi-mq-pro on The world beyond Linux</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Mar 2023 17:17:55 +0100</lastBuildDate><atom:link href="https://worldbeyondlinux.be/tags/mangopi-mq-pro/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jun 2023 13:37:07 +0200</lastBuildDate><atom:link href="https://worldbeyondlinux.be/tags/mangopi-mq-pro/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GPIO on the MangoPi MQ-Pro</title>
+      <link>https://worldbeyondlinux.be/posts/gpio-on-the-mango-pi/</link>
+      <pubDate>Sat, 03 Jun 2023 13:37:07 +0200</pubDate>
+      
+      <guid>https://worldbeyondlinux.be/posts/gpio-on-the-mango-pi/</guid>
+      <description>One of the last aspects I wanted to explore and get working on my MangoPi MQ-Pro. For this experiment, like my previous endeavor trying out Bluetooth on my MangoPi MQ-Pro, I used the Ubuntu 22.10 RISC-V image for the SiPeed LicheeRV Dock image.
+No extra configuration is needed to get GPIO working with this image on the MangoPi MQ-Pro. I tried out three different ways of accessing the GPIO pins; using legacy sysfs-based access, using the userspace GPIO driver, and lastly using lgpio from Python.</description>
+    </item>
+    
     <item>
       <title>Setting up Bluetooth on the MangoPi MQ-Pro, and testing it out with a Bluetooth access point</title>
       <link>https://worldbeyondlinux.be/posts/bluetooth-on-the-mango-pi/</link>
