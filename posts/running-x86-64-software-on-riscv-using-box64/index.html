@@ -3,15 +3,22 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Running x86_64 Software on RISC-V Using Box64 - The world beyond Linux</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:title" content="Running x86_64 Software on RISC-V Using Box64" />
-<meta property="og:description" content="In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a MangoPi MQ-Pro. We will be using an awesome piece of software called Box64. Basically this software runs x86_64 binaries through an emulator, but with a twist; it uses the native versions of some &ldquo;system&rdquo; libraries, like libc, libm, SDL, and OpenGL, like described in the README of the project:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://worldbeyondlinux.be/posts/running-x86-64-software-on-riscv-using-box64/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-09-19T18:44:12+02:00" />
-<meta property="article:modified_time" content="2022-09-19T18:44:12+02:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Running x86_64 Software on RISC-V Using Box64"/>
-<meta name="twitter:description" content="In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a MangoPi MQ-Pro. We will be using an awesome piece of software called Box64. Basically this software runs x86_64 binaries through an emulator, but with a twist; it uses the native versions of some &ldquo;system&rdquo; libraries, like libc, libm, SDL, and OpenGL, like described in the README of the project:"/>
+	<meta property="og:url" content="https://worldbeyondlinux.be/posts/running-x86-64-software-on-riscv-using-box64/">
+  <meta property="og:site_name" content="The world beyond Linux">
+  <meta property="og:title" content="Running x86_64 Software on RISC-V Using Box64">
+  <meta property="og:description" content="In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a MangoPi MQ-Pro. We will be using an awesome piece of software called Box64.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-09-19T18:44:12+02:00">
+    <meta property="article:modified_time" content="2022-09-19T18:44:12+02:00">
+    <meta property="article:tag" content="Mangopi-Mq-Pro">
+    <meta property="article:tag" content="Risc-V">
+    <meta property="article:tag" content="Box64">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Running x86_64 Software on RISC-V Using Box64">
+  <meta name="twitter:description" content="In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a MangoPi MQ-Pro. We will be using an awesome piece of software called Box64.">
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/normalize.css" />
@@ -108,17 +115,17 @@ Our C-program looks like this:</p>
 </span></span></code></pre></div><p>Now we will transfer the program to our RISC-V machine. You can use tools like <code>scp</code> for this when your RISC-V machine is on the same network.
 Also, make sure the binary is executable: <code>chmod +x hello</code>.
 Then you should be able to just run the binary on your RISC-V machine:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ ./hello 
-</span></span><span style="display:flex;"><span>Box64 v0.1.9 21c56e7 built on Sep 16 2022 17:30:02
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>$ ./hello 
+</span></span><span style="display:flex;"><span>Box64 v0.<span style="color:#00d;font-weight:bold">1.9</span> <span style="color:#00d;font-weight:bold">21</span>c56e7 built on Sep <span style="color:#00d;font-weight:bold">16</span> <span style="color:#00d;font-weight:bold">2022</span> <span style="color:#00d;font-weight:bold">17</span>:<span style="color:#00d;font-weight:bold">30</span>:<span style="color:#00d;font-weight:bold">02</span>
 </span></span><span style="display:flex;"><span>Using default BOX64_LD_LIBRARY_PATH: ./:lib/:lib64/:x86_64/:bin64/:libs64/
 </span></span><span style="display:flex;"><span>Using default BOX64_PATH: ./:bin/
-</span></span><span style="display:flex;"><span>Counted 22 Env var
-</span></span><span style="display:flex;"><span>Looking for ./hello
-</span></span><span style="display:flex;"><span>Rename process to &#34;hello&#34;
-</span></span><span style="display:flex;"><span>Using native(wrapped) libc.so.6
-</span></span><span style="display:flex;"><span>Using native(wrapped) ld-linux-x86-64.so.2
-</span></span><span style="display:flex;"><span>Using native(wrapped) libpthread.so.0
-</span></span><span style="display:flex;"><span>Using native(wrapped) librt.so.1
+</span></span><span style="display:flex;"><span>Counted <span style="color:#00d;font-weight:bold">22</span> Env <span style="color:#080;font-weight:bold">var</span>
+</span></span><span style="display:flex;"><span>Looking <span style="color:#080;font-weight:bold">for</span> ./hello
+</span></span><span style="display:flex;"><span>Rename process to <span style="color:#d20;background-color:#fff0f0">&#34;hello&#34;</span>
+</span></span><span style="display:flex;"><span>Using native(wrapped) libc.so.<span style="color:#00d;font-weight:bold">6</span>
+</span></span><span style="display:flex;"><span>Using native(wrapped) ld-linux-x86-<span style="color:#00d;font-weight:bold">64.</span>so.<span style="color:#00d;font-weight:bold">2</span>
+</span></span><span style="display:flex;"><span>Using native(wrapped) libpthread.so.<span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>Using native(wrapped) librt.so.<span style="color:#00d;font-weight:bold">1</span>
 </span></span><span style="display:flex;"><span>Hello, world!
 </span></span></code></pre></div><p>If you don&rsquo;t have binfmt-support, you can still run the program like this:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>box64 ./hello
@@ -134,34 +141,34 @@ I already successfully ran this software via Box64 on a Raspberry Pi, so it was 
 To install it, I just followed the <a href="https://wiki.multitheftauto.com/wiki/Installing_and_Running_MTASA_Server_on_GNU_Linux#Installation_64_bit">instructions</a> posted on their website.
 There does appear to be an issue with the ncurses library that&rsquo;s being used by MTA in combination with Box64.
 But when running the software without ncurses with the <code>-n</code> argument, the software eventually starts without any issues:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ BOX64_NOBANNER=1 BOX64_LOG=0 ./mta-server64 -n
-</span></span><span style="display:flex;"><span>Warning, function myw_wprintw not found
-</span></span><span style="display:flex;"><span>MTA:BLUE Server for MTA:SA
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>$ BOX64_NOBANNER=<span style="color:#00d;font-weight:bold">1</span> BOX64_LOG=<span style="color:#00d;font-weight:bold">0</span> ./mta-server64 -n
+</span></span><span style="display:flex;"><span>Warning, function myw_wprintw <span style="color:#080">not</span> found
+</span></span><span style="display:flex;"><span>MTA:BLUE Server <span style="color:#080;font-weight:bold">for</span> MTA:SA
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>==================================================================
-</span></span><span style="display:flex;"><span>= Multi Theft Auto: San Andreas v1.5.9 [64 bit]
+</span></span><span style="display:flex;"><span>= Multi Theft Auto: San Andreas v1.<span style="color:#00d;font-weight:bold">5.9</span> [<span style="color:#00d;font-weight:bold">64</span> bit]
 </span></span><span style="display:flex;"><span>==================================================================
 </span></span><span style="display:flex;"><span>= Server name      : RISC-test
-</span></span><span style="display:flex;"><span>= Server IP address: auto
-</span></span><span style="display:flex;"><span>= Server port      : 22003
+</span></span><span style="display:flex;"><span>= Server <span style="color:#b06;font-weight:bold">IP</span> address: auto
+</span></span><span style="display:flex;"><span>= Server port      : <span style="color:#00d;font-weight:bold">22003</span>
 </span></span><span style="display:flex;"><span>= 
 </span></span><span style="display:flex;"><span>= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
-</span></span><span style="display:flex;"><span>= Maximum players  : 32
-</span></span><span style="display:flex;"><span>= HTTP port        : 22005
+</span></span><span style="display:flex;"><span>= Maximum players  : <span style="color:#00d;font-weight:bold">32</span>
+</span></span><span style="display:flex;"><span>= HTTP port        : <span style="color:#00d;font-weight:bold">22005</span>
 </span></span><span style="display:flex;"><span>= Voice Chat       : Disabled
 </span></span><span style="display:flex;"><span>= Bandwidth saving : Medium
 </span></span><span style="display:flex;"><span>==================================================================
-</span></span><span style="display:flex;"><span>[16:56:48] Resources: 194 loaded, 0 failed
-</span></span><span style="display:flex;"><span>[16:56:49] Server password set to &#39;******&#39;
-</span></span><span style="display:flex;"><span>[16:56:49] Starting resources...
-</span></span><span style="display:flex;"><span>[16:57:14] Server minclientversion is now 1.5.9-9.21261.0
-</span></span><span style="display:flex;"><span>[16:58:10] Gamemode &#39;play&#39; started.
-</span></span><span style="display:flex;"><span>[16:58:10] Querying MTA master server... success! (Auto detected IP:94.110.54.172)
-</span></span><span style="display:flex;"><span>[16:58:10] Authorized serial account protection is DISABLED. See http://mtasa.com/authserial
-</span></span><span style="display:flex;"><span>[16:58:10] WARNING: &lt;owner_email_address&gt; not set
-</span></span><span style="display:flex;"><span>[16:58:10] Server started and is ready to accept connections!
-</span></span><span style="display:flex;"><span>[16:58:10] To stop the server, type &#39;shutdown&#39; or press Ctrl-C
-</span></span><span style="display:flex;"><span>[16:58:10] Type &#39;help&#39; for a list of commands.
+</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">56</span>:<span style="color:#00d;font-weight:bold">48</span>] Resources: <span style="color:#00d;font-weight:bold">194</span> loaded, <span style="color:#00d;font-weight:bold">0</span> failed
+</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">56</span>:<span style="color:#00d;font-weight:bold">49</span>] Server password set to <span style="color:#d20;background-color:#fff0f0">&#39;******&#39;</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">56</span>:<span style="color:#00d;font-weight:bold">49</span>] Starting resources...
+</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">57</span>:<span style="color:#00d;font-weight:bold">14</span>] Server minclientversion is now <span style="color:#00d;font-weight:bold">1.5</span>.<span style="color:#00d;font-weight:bold">9</span>-<span style="color:#00d;font-weight:bold">9.21261</span>.<span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] Gamemode <span style="color:#d20;background-color:#fff0f0">&#39;play&#39;</span> started.
+</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] Querying MTA master server... success! (Auto detected <span style="color:#b06;font-weight:bold">IP</span>:<span style="color:#00d;font-weight:bold">94.110</span>.<span style="color:#00d;font-weight:bold">54.172</span>)
+</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] Authorized serial account protection is DISABLED. See http://mtasa.com/authserial
+</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] WARNING: &lt;owner_email_address&gt; <span style="color:#080">not</span> set
+</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] Server started <span style="color:#080">and</span> is ready to accept connections!
+</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] To stop the server, type <span style="color:#d20;background-color:#fff0f0">&#39;shutdown&#39;</span> <span style="color:#080">or</span> press Ctrl-C
+</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] Type <span style="color:#d20;background-color:#fff0f0">&#39;help&#39;</span> <span style="color:#080;font-weight:bold">for</span> a list of commands.
 </span></span></code></pre></div><h2 id="going-further">Going further</h2>
 <p>The two tests in this article were very basic.
 With Box64 on RISC-V a world of opportunities opens up; running software written for Windows using Wine, running GUI applications&hellip;

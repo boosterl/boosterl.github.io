@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>xv6 on The world beyond Linux</title>
+    <title>Xv6 on The world beyond Linux</title>
     <link>https://worldbeyondlinux.be/tags/xv6/</link>
-    <description>Recent content in xv6 on The world beyond Linux</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Xv6 on The world beyond Linux</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Oct 2022 16:28:12 +0100</lastBuildDate><atom:link href="https://worldbeyondlinux.be/tags/xv6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Oct 2022 16:28:12 +0100</lastBuildDate>
+    <atom:link href="https://worldbeyondlinux.be/tags/xv6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Exploring non-Linux Based Operating Systems on Allwinner D1</title>
       <link>https://worldbeyondlinux.be/posts/exploring-non-linux-oses-on-d1/</link>
       <pubDate>Mon, 31 Oct 2022 16:28:12 +0100</pubDate>
-      
       <guid>https://worldbeyondlinux.be/posts/exploring-non-linux-oses-on-d1/</guid>
-      <description>Introduction As of writing this article, there are a few choices of operating systems to choose from for the Allwinner D1. In the future, more choices will probably become available. In this article we will take a closer look into FreeBSD and xv6 for the Allwinner D1. I will use a MangoPi MQ-Pro to test these operating systems.
-FreeBSD For many people, FreeBSD won&amp;rsquo;t need an introduction. FreeBSD is a free and open-source Unix-like operating system first released in 1993.</description>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;As of writing this article, there are a few choices of operating systems to choose from for the Allwinner D1.&#xA;In the future, more choices will probably become available.&#xA;In this article we will take a closer look into &lt;a href=&#34;https://github.com/freebsd-d1/freebsd-d1&#34;&gt;FreeBSD&lt;/a&gt; and &lt;a href=&#34;https://github.com/michaelengel/xv6-d1&#34;&gt;xv6&lt;/a&gt; for the Allwinner D1.&#xA;I will use a &lt;a href=&#34;https://mangopi.org/mangopi_mqpro&#34;&gt;MangoPi MQ-Pro&lt;/a&gt; to test these operating systems.&lt;/p&gt;&#xA;&lt;h1 id=&#34;freebsd&#34;&gt;FreeBSD&lt;/h1&gt;&#xA;&lt;p&gt;For many people, FreeBSD won&amp;rsquo;t need an introduction.&#xA;FreeBSD is a free and open-source Unix-like operating system first released in 1993.&#xA;To create an image ready to flash on an SD card, access to a FreeBSD (virtual) machine is recommended.&#xA;On this machine, the &lt;a href=&#34;https://github.com/freebsd-d1/freebsd-d1/blob/main/README.md&#34;&gt;readme&lt;/a&gt; of the project can be followed.&#xA;This will result in a &lt;code&gt;freebsd-d1.img&lt;/code&gt;-img file in the working directory.&#xA;This image can then be flashed on an SD card in the usual fashion; &lt;code&gt;dd if=freebsd-d1.img of=/dev/&amp;lt;SD card location&amp;gt;&lt;/code&gt;.&#xA;When inserting the image, and starting your board, a serial connection will also be necessary, because as far as I can tell, and at the moment of writing this article, no HDMI-support is present.&#xA;I used a Raspberry Pi to open a serial console, more information on how I did this, can be found in &lt;a href=&#34;https://worldbeyondlinux.be/posts/how-to-use-a-pi-instead-of-a-usb-console-cable&#34;&gt;this&lt;/a&gt; article.&#xA;After staring up the board with an open console, you should be greeted with a FreeBSD login screen:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>box64 on The world beyond Linux</title>
+    <title>Box64 on The world beyond Linux</title>
     <link>https://worldbeyondlinux.be/tags/box64/</link>
-    <description>Recent content in box64 on The world beyond Linux</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Box64 on The world beyond Linux</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Sep 2022 18:44:12 +0200</lastBuildDate><atom:link href="https://worldbeyondlinux.be/tags/box64/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Sep 2022 18:44:12 +0200</lastBuildDate>
+    <atom:link href="https://worldbeyondlinux.be/tags/box64/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Running x86_64 Software on RISC-V Using Box64</title>
       <link>https://worldbeyondlinux.be/posts/running-x86-64-software-on-riscv-using-box64/</link>
       <pubDate>Mon, 19 Sep 2022 18:44:12 +0200</pubDate>
-      
       <guid>https://worldbeyondlinux.be/posts/running-x86-64-software-on-riscv-using-box64/</guid>
-      <description>In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a MangoPi MQ-Pro. We will be using an awesome piece of software called Box64. Basically this software runs x86_64 binaries through an emulator, but with a twist; it uses the native versions of some &amp;ldquo;system&amp;rdquo; libraries, like libc, libm, SDL, and OpenGL, like described in the README of the project:</description>
+      <description>&lt;p&gt;In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a &lt;a href=&#34;https://mangopi.cc/mangopi_mqpro&#34;&gt;MangoPi MQ-Pro&lt;/a&gt;.&#xA;We will be using an awesome piece of software called &lt;a href=&#34;https://github.com/ptitSeb/box64/&#34;&gt;Box64&lt;/a&gt;.&#xA;Basically this software runs x86_64 binaries through an emulator, but with a twist; it uses the native versions of some &amp;ldquo;system&amp;rdquo; libraries, like libc, libm, SDL, and OpenGL, like described in the README of the project:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Since Box64 uses the native versions of some &amp;#34;system&amp;#34; libraries, like libc,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;libm, SDL, and OpenGL, it&amp;#39;s easy to integrate and use with most applications,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;and performance can be surprisingly high in many cases.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I have already tried the software on my RaspberryPi, both on an aarch64 and armv7 kernel (for the armv7 kernel, I used &lt;a href=&#34;https://github.com/ptitSeb/box86&#34;&gt;Box86&lt;/a&gt;, which is for 32bit applications), but I saw Box64 was not limited to the ARM architecture. Other architectures like PowerPC 64 LE, LoongArch and, the one we are interested in, RISC-V, are also supported. So I decided to take it for a spin on my MangoPi MQ-Pro.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>raspberry-pi on The world beyond Linux</title>
+    <title>Raspberry-Pi on The world beyond Linux</title>
     <link>https://worldbeyondlinux.be/tags/raspberry-pi/</link>
-    <description>Recent content in raspberry-pi on The world beyond Linux</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Raspberry-Pi on The world beyond Linux</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Aug 2022 11:39:44 +0200</lastBuildDate><atom:link href="https://worldbeyondlinux.be/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Aug 2022 11:39:44 +0200</lastBuildDate>
+    <atom:link href="https://worldbeyondlinux.be/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Use a Raspberry Pi Instead of a USB Console Cable</title>
       <link>https://worldbeyondlinux.be/posts/how-to-use-a-pi-instead-of-a-usb-console-cable/</link>
       <pubDate>Sun, 28 Aug 2022 11:39:44 +0200</pubDate>
-      
       <guid>https://worldbeyondlinux.be/posts/how-to-use-a-pi-instead-of-a-usb-console-cable/</guid>
-      <description>As the title says, this article will be about using a Raspberry Pi SBC (whatever model), instead of a USB Console Cable to debug another SBC, router, microcontroller&amp;hellip; The need for this came when I received my MangoPi MQ-Pro, I wanted to try different operating systems for this SBC, but I didn&amp;rsquo;t have access to a USB Console Cable, at least not one that was 3.3V tolerant. I wanted to have access to the serial console because a lot of OS images for the MangoPi, at the time of writing this article, didn&amp;rsquo;t have HDMI drivers.</description>
+      <description>&lt;p&gt;As the title says, this article will be about using a Raspberry Pi SBC (whatever model), instead of a USB Console Cable to debug another SBC, router, microcontroller&amp;hellip; The need for this came when I received my &lt;a href=&#34;https://mangopi.cc/mangopi_mqpro&#34;&gt;MangoPi MQ-Pro&lt;/a&gt;, I wanted to try different operating systems for this SBC, but I didn&amp;rsquo;t have access to a USB Console Cable, at least not one that was 3.3V tolerant. I wanted to have access to the serial console because a lot of OS images for the MangoPi, at the time of writing this article, didn&amp;rsquo;t have HDMI drivers. I have already used a Raspberry Pi to flash and interact with micropython on an ESP8266, so I thought, why not use the same method to interact with my new MangoPi.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

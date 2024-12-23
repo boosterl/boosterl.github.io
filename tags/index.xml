@@ -4,179 +4,142 @@
     <title>Tags on The world beyond Linux</title>
     <link>https://worldbeyondlinux.be/tags/</link>
     <description>Recent content in Tags on The world beyond Linux</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Jun 2023 13:37:07 +0200</lastBuildDate><atom:link href="https://worldbeyondlinux.be/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jun 2023 13:37:07 +0200</lastBuildDate>
+    <atom:link href="https://worldbeyondlinux.be/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>gpio</title>
+      <title>Gpio</title>
       <link>https://worldbeyondlinux.be/tags/gpio/</link>
       <pubDate>Sat, 03 Jun 2023 13:37:07 +0200</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/gpio/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>mangopi-mq-pro</title>
+      <title>Mangopi-Mq-Pro</title>
       <link>https://worldbeyondlinux.be/tags/mangopi-mq-pro/</link>
       <pubDate>Sat, 03 Jun 2023 13:37:07 +0200</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/mangopi-mq-pro/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>risc-v</title>
+      <title>Risc-V</title>
       <link>https://worldbeyondlinux.be/tags/risc-v/</link>
       <pubDate>Sat, 03 Jun 2023 13:37:07 +0200</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/risc-v/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ubuntu</title>
+      <title>Ubuntu</title>
       <link>https://worldbeyondlinux.be/tags/ubuntu/</link>
       <pubDate>Sat, 03 Jun 2023 13:37:07 +0200</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/ubuntu/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>bluetooth</title>
+      <title>Bluetooth</title>
       <link>https://worldbeyondlinux.be/tags/bluetooth/</link>
       <pubDate>Sat, 25 Mar 2023 17:17:55 +0100</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/bluetooth/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>freebsd</title>
+      <title>Freebsd</title>
       <link>https://worldbeyondlinux.be/tags/freebsd/</link>
       <pubDate>Mon, 31 Oct 2022 16:28:12 +0100</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/freebsd/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>xv6</title>
+      <title>Xv6</title>
       <link>https://worldbeyondlinux.be/tags/xv6/</link>
       <pubDate>Mon, 31 Oct 2022 16:28:12 +0100</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/xv6/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>box64</title>
+      <title>Box64</title>
       <link>https://worldbeyondlinux.be/tags/box64/</link>
       <pubDate>Mon, 19 Sep 2022 18:44:12 +0200</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/box64/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>raspberry-pi</title>
+      <title>Raspberry-Pi</title>
       <link>https://worldbeyondlinux.be/tags/raspberry-pi/</link>
       <pubDate>Sun, 28 Aug 2022 11:39:44 +0200</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/raspberry-pi/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>serial</title>
+      <title>Serial</title>
       <link>https://worldbeyondlinux.be/tags/serial/</link>
       <pubDate>Sun, 28 Aug 2022 11:39:44 +0200</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/serial/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>adb</title>
+      <title>Adb</title>
       <link>https://worldbeyondlinux.be/tags/adb/</link>
       <pubDate>Sat, 30 Nov 2019 11:53:16 +0100</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/adb/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>android</title>
+      <title>Android</title>
       <link>https://worldbeyondlinux.be/tags/android/</link>
       <pubDate>Sat, 30 Nov 2019 11:53:16 +0100</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/android/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>apache</title>
+      <title>Apache</title>
       <link>https://worldbeyondlinux.be/tags/apache/</link>
       <pubDate>Sat, 30 Nov 2019 11:53:16 +0100</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/apache/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>termux</title>
+      <title>Termux</title>
       <link>https://worldbeyondlinux.be/tags/termux/</link>
       <pubDate>Sat, 30 Nov 2019 11:53:16 +0100</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/termux/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>wearables</title>
+      <title>Wearables</title>
       <link>https://worldbeyondlinux.be/tags/wearables/</link>
       <pubDate>Sat, 30 Nov 2019 11:53:16 +0100</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/wearables/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>blog</title>
+      <title>Blog</title>
       <link>https://worldbeyondlinux.be/tags/blog/</link>
       <pubDate>Sat, 27 Jul 2019 12:51:45 +0000</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/blog/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>git</title>
+      <title>Git</title>
       <link>https://worldbeyondlinux.be/tags/git/</link>
       <pubDate>Sat, 27 Jul 2019 12:51:45 +0000</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/git/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>howto</title>
+      <title>Howto</title>
       <link>https://worldbeyondlinux.be/tags/howto/</link>
       <pubDate>Sat, 27 Jul 2019 12:51:45 +0000</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/howto/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>hugo</title>
+      <title>Hugo</title>
       <link>https://worldbeyondlinux.be/tags/hugo/</link>
       <pubDate>Sat, 27 Jul 2019 12:51:45 +0000</pubDate>
-      
       <guid>https://worldbeyondlinux.be/tags/hugo/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

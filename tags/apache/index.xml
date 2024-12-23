@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>apache on The world beyond Linux</title>
+    <title>Apache on The world beyond Linux</title>
     <link>https://worldbeyondlinux.be/tags/apache/</link>
-    <description>Recent content in apache on The world beyond Linux</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Apache on The world beyond Linux</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Nov 2019 11:53:16 +0100</lastBuildDate><atom:link href="https://worldbeyondlinux.be/tags/apache/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Nov 2019 11:53:16 +0100</lastBuildDate>
+    <atom:link href="https://worldbeyondlinux.be/tags/apache/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to run the Apache webserver on a five year old Android smartwatch</title>
       <link>https://worldbeyondlinux.be/posts/how-to-run-apache-on-a-smartwatch/</link>
       <pubDate>Sat, 30 Nov 2019 11:53:16 +0100</pubDate>
-      
       <guid>https://worldbeyondlinux.be/posts/how-to-run-apache-on-a-smartwatch/</guid>
-      <description>The first question you might ask yourself when reading the title of this article is; why would you want to this. My answer to that question is, why wouldn&amp;rsquo;t you?
-I like using technology in ways that makes my live easier. That&amp;rsquo;s why I bought my Motorola Moto 360 in the first place, more than five years ago. It has indeed made my life easier in a few ways, quickly reading a message, discarding when necessary, or pulling out my phone when I need/want to reply.</description>
+      <description>&lt;p&gt;The first question you might ask yourself when reading the title of this article is; why would you want to this. My answer to that question is, why wouldn&amp;rsquo;t you?&lt;/p&gt;&#xA;&lt;p&gt;I like using technology in ways that makes my live easier. That&amp;rsquo;s why I bought my Motorola Moto 360 in the first place, more than five years ago. It has indeed made my life easier in a few ways, quickly reading a message, discarding when necessary, or pulling out my phone when I need/want to reply. Also controlling my music, checking of a shopping list in the supermarket, even making a quick calculation with the built-in calculator. All these things made me really like my smartwacth. I could live without it more easily than my phone, but still, I wear it almost every day.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

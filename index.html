@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="generator" content="Hugo 0.112.7">
+	<meta name="generator" content="Hugo 0.140.0">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The world beyond Linux - My personal blog about Linux, FOSS, personal projects and other things </title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="alternate" type="application/rss+xml" href="https://worldbeyondlinux.be/index.xml" title="The world beyond Linux" />
-	<meta property="og:title" content="The world beyond Linux" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://worldbeyondlinux.be/" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="The world beyond Linux"/>
-<meta name="twitter:description" content=""/>
+	<meta property="og:url" content="https://worldbeyondlinux.be/">
+  <meta property="og:site_name" content="The world beyond Linux">
+  <meta property="og:title" content="The world beyond Linux">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The world beyond Linux">
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/normalize.css" />
@@ -66,8 +67,7 @@
 					<a class="title" href="/posts/gpio-on-the-mango-pi/">GPIO on the MangoPi MQ-Pro</a> &mdash;
 					<span class="description">
 						
-						One of the last aspects I wanted to explore and get working on my MangoPi MQ-Pro. For this experiment, like my previous endeavor trying out Bluetooth on my MangoPi MQ-Pro, I used the Ubuntu 22.10 RISC-V image for the SiPeed LicheeRV Dock image.
-No extra configuration is needed to get GPIO working with this image on the MangoPi MQ-Pro. I tried out three different ways of accessing the GPIO pins; using legacy sysfs-based access, using the userspace GPIO driver, and lastly using lgpio from Python.&hellip;
+						One of the last aspects I wanted to explore and get working on my MangoPi MQ-Pro, is GPIO. For this experiment, like my previous endeavor trying out Bluetooth on my MangoPi MQ-Pro, I used the Ubuntu 22.10 RISC-V image for the SiPeed LicheeRV Dock image.
 						
 					</span>
 				</div>
@@ -77,7 +77,7 @@ No extra configuration is needed to get GPIO working with this image on the Mang
 					<a class="title" href="/posts/bluetooth-on-the-mango-pi/">Setting up Bluetooth on the MangoPi MQ-Pro, and testing it out with a Bluetooth access point</a> &mdash;
 					<span class="description">
 						
-						I received my MangoPi MQ-Pro a few months ago, and was very eager to test out all the hardware which I use the most on SBC&rsquo;s. Bluetooth is not one of the features I use a lot on SBC&rsquo;s. But after having tested out a lot of operating systems and hardware features of the board, I decided to also try and see what the status of Bluetooth on the board was.&hellip;
+						I received my MangoPi MQ-Pro a few months ago, and was very eager to test out all the hardware which I use the most on SBC&#39;s. Bluetooth is not one of the features I use a lot on SBC&#39;s. But after having tested out a lot of operating systems and hardware features of the board, I decided to also try and see what the status of Bluetooth on the board was.
 						
 					</span>
 				</div>
@@ -87,8 +87,7 @@ No extra configuration is needed to get GPIO working with this image on the Mang
 					<a class="title" href="/posts/exploring-non-linux-oses-on-d1/">Exploring non-Linux Based Operating Systems on Allwinner D1</a> &mdash;
 					<span class="description">
 						
-						Introduction As of writing this article, there are a few choices of operating systems to choose from for the Allwinner D1. In the future, more choices will probably become available. In this article we will take a closer look into FreeBSD and xv6 for the Allwinner D1. I will use a MangoPi MQ-Pro to test these operating systems.
-FreeBSD For many people, FreeBSD won&rsquo;t need an introduction. FreeBSD is a free and open-source Unix-like operating system first released in 1993.&hellip;
+						As of writing this article, there are a few choices of operating systems to choose from for the Allwinner D1. In the future, more choices will probably become available. In this article we will take a closer look into FreeBSD and xv6 for the Allwinner D1. I will use a MangoPi MQ-Pro to test these operating systems.
 						
 					</span>
 				</div>
@@ -98,7 +97,7 @@ FreeBSD For many people, FreeBSD won&rsquo;t need an introduction. FreeBSD is a 
 					<a class="title" href="/posts/running-x86-64-software-on-riscv-using-box64/">Running x86_64 Software on RISC-V Using Box64</a> &mdash;
 					<span class="description">
 						
-						In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a MangoPi MQ-Pro. We will be using an awesome piece of software called Box64. Basically this software runs x86_64 binaries through an emulator, but with a twist; it uses the native versions of some &ldquo;system&rdquo; libraries, like libc, libm, SDL, and OpenGL, like described in the README of the project:&hellip;
+						In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a MangoPi MQ-Pro. We will be using an awesome piece of software called Box64.
 						
 					</span>
 				</div>
@@ -108,7 +107,7 @@ FreeBSD For many people, FreeBSD won&rsquo;t need an introduction. FreeBSD is a 
 					<a class="title" href="/posts/how-to-use-a-pi-instead-of-a-usb-console-cable/">How to Use a Raspberry Pi Instead of a USB Console Cable</a> &mdash;
 					<span class="description">
 						
-						As the title says, this article will be about using a Raspberry Pi SBC (whatever model), instead of a USB Console Cable to debug another SBC, router, microcontroller&hellip; The need for this came when I received my MangoPi MQ-Pro, I wanted to try different operating systems for this SBC, but I didn&rsquo;t have access to a USB Console Cable, at least not one that was 3.3V tolerant. I wanted to have access to the serial console because a lot of OS images for the MangoPi, at the time of writing this article, didn&rsquo;t have HDMI drivers.&hellip;
+						As the title says, this article will be about using a Raspberry Pi SBC (whatever model), instead of a USB Console Cable to debug another SBC, router, microcontroller... The need for this came when I received my MangoPi MQ-Pro, I wanted to try different operating systems for this SBC, but I didn&#39;t have access to a USB Console Cable, at least not one that was 3.3V tolerant. I wanted to have access to the serial console because a lot of OS images for the MangoPi, at the time of writing this article, didn&#39;t have HDMI drivers. I have already used a Raspberry Pi to flash and interact with micropython on an ESP8266, so I thought, why not use the same method to interact with my new MangoPi.
 						
 					</span>
 				</div>
@@ -118,8 +117,7 @@ FreeBSD For many people, FreeBSD won&rsquo;t need an introduction. FreeBSD is a 
 					<a class="title" href="/posts/how-to-run-apache-on-a-smartwatch/">How to run the Apache webserver on a five year old Android smartwatch</a> &mdash;
 					<span class="description">
 						
-						The first question you might ask yourself when reading the title of this article is; why would you want to this. My answer to that question is, why wouldn&rsquo;t you?
-I like using technology in ways that makes my live easier. That&rsquo;s why I bought my Motorola Moto 360 in the first place, more than five years ago. It has indeed made my life easier in a few ways, quickly reading a message, discarding when necessary, or pulling out my phone when I need/want to reply.&hellip;
+						The first question you might ask yourself when reading the title of this article is; why would you want to this. My answer to that question is, why wouldn&#39;t you?
 						
 					</span>
 				</div>
@@ -129,7 +127,7 @@ I like using technology in ways that makes my live easier. That&rsquo;s why I bo
 					<a class="title" href="/posts/how-i-run-my-blog-using-github-pages-and-hugo/">How I Run My Blog Using Github Pages and Hugo</a> &mdash;
 					<span class="description">
 						
-						For my blog I&rsquo;m using Github pages to host the static content generated by Hugo. Hugo is a static site generator which creates web pages from markdown files you write. That way, when you don&rsquo;t want to be bothered with styling your blog, you can just choose a theme from a vast collection, and you&rsquo;re done. Just write some posts in markdown run the hugo command, and you will find all the static content in the public directory, ready to deploy to a web server, or, in my case, Github pages.&hellip;
+						For my blog I&#39;m using Github pages to host the static content generated by Hugo. Hugo is a static site generator which creates web pages from markdown files you write. That way, when you don&#39;t want to be bothered with styling your blog, you can just choose a theme from a vast collection, and you&#39;re done. Just write some posts in markdown run the hugo command, and you will find all the static content in the public directory, ready to deploy to a web server, or, in my case, Github pages.
 						
 					</span>
 				</div>
@@ -139,7 +137,7 @@ I like using technology in ways that makes my live easier. That&rsquo;s why I bo
 					<a class="title" href="/posts/my-first-post/">My First Post</a> &mdash;
 					<span class="description">
 						
-						Hello there, this is my first blog post. Let me first start by saying a few words about myself, my name is Bram Oosterlynck and I was born in Belgium. In my free time I like to do a lot of stuff, camping, hiking, road trips, etc. But this blog will be about something else I love doing in my free time. I love playing around with technology, and that is what this blog will be about.&hellip;
+						Hello there, this is my first blog post. Let me first start by saying a few words about myself, my name is Bram Oosterlynck and I was born in Belgium. In my free time I like to do a lot of stuff, camping, hiking, road trips, etc. But this blog will be about something else I love doing in my free time. I love playing around with technology, and that is what this blog will be about.
 						
 					</span>
 				</div>

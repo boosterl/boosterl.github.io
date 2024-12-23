@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gpio on The world beyond Linux</title>
+    <title>Gpio on The world beyond Linux</title>
     <link>https://worldbeyondlinux.be/tags/gpio/</link>
-    <description>Recent content in gpio on The world beyond Linux</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Gpio on The world beyond Linux</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Jun 2023 13:37:07 +0200</lastBuildDate><atom:link href="https://worldbeyondlinux.be/tags/gpio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jun 2023 13:37:07 +0200</lastBuildDate>
+    <atom:link href="https://worldbeyondlinux.be/tags/gpio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GPIO on the MangoPi MQ-Pro</title>
       <link>https://worldbeyondlinux.be/posts/gpio-on-the-mango-pi/</link>
       <pubDate>Sat, 03 Jun 2023 13:37:07 +0200</pubDate>
-      
       <guid>https://worldbeyondlinux.be/posts/gpio-on-the-mango-pi/</guid>
-      <description>One of the last aspects I wanted to explore and get working on my MangoPi MQ-Pro. For this experiment, like my previous endeavor trying out Bluetooth on my MangoPi MQ-Pro, I used the Ubuntu 22.10 RISC-V image for the SiPeed LicheeRV Dock image.
-No extra configuration is needed to get GPIO working with this image on the MangoPi MQ-Pro. I tried out three different ways of accessing the GPIO pins; using legacy sysfs-based access, using the userspace GPIO driver, and lastly using lgpio from Python.</description>
+      <description>&lt;p&gt;One of the last aspects I wanted to explore and get working on my MangoPi&#xA;MQ-Pro, is GPIO. For this experiment, like my previous endeavor&#xA;&lt;a href=&#34;https://worldbeyondlinux.be/posts/bluetooth-on-the-mango-pi/&#34;&gt;trying out Bluetooth on my MangoPi MQ-Pro&lt;/a&gt;,&#xA;I used the &lt;a href=&#34;https://ubuntu.com/download/risc-v&#34;&gt;Ubuntu 22.10 RISC-V image for the SiPeed LicheeRV Dock&lt;/a&gt;&#xA;image.&lt;/p&gt;&#xA;&lt;p&gt;No extra configuration is needed to get GPIO working with this image on the&#xA;MangoPi MQ-Pro. I tried out three different ways of accessing the GPIO pins;&#xA;using legacy sysfs-based access, using the userspace GPIO driver, and lastly&#xA;using lgpio from Python.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
