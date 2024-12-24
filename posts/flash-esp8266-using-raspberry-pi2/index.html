@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Flash an ESP8266 Using a Raspberry Pi - The world beyond Linux</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:url" content="https://worldbeyondlinux.be/posts/flash-esp8266-using-raspberry-pi2/">
+  <meta property="og:site_name" content="The world beyond Linux">
+  <meta property="og:title" content="Flash an ESP8266 Using a Raspberry Pi">
+  <meta property="og:description" content="In this guide I will be explaining how I flash an ESP8266 chip using a Raspberry Pi. More specifically; a Raspberry Pi 2. But any model with GPIO pins will do. In this guide I will be flashing MicroPython on the chip.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-23T17:50:44+01:00">
+    <meta property="article:modified_time" content="2024-12-23T17:50:44+01:00">
+    <meta property="article:tag" content="Raspberry-Pi">
+    <meta property="article:tag" content="Serial">
+    <meta property="article:tag" content="Esp8266">
+    <meta property="article:tag" content="Esp12f">
+    <meta property="article:tag" content="Micropython">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Flash an ESP8266 Using a Raspberry Pi">
+  <meta name="twitter:description" content="In this guide I will be explaining how I flash an ESP8266 chip using a Raspberry Pi. More specifically; a Raspberry Pi 2. But any model with GPIO pins will do. In this guide I will be flashing MicroPython on the chip.">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.css" /><link rel="stylesheet" type="text/css" href="https://worldbeyondlinux.be/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://worldbeyondlinux.be/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://worldbeyondlinux.be/">
+	<h1 class="site-title"><a href="https://worldbeyondlinux.be/">The world beyond Linux</a></h1>
+	<div class="site-description"><h2>My personal blog about Linux, FOSS, personal projects and other things</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/boosterl" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/boosterlynck" title="Twitter"><i data-feather="twitter"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Flash an ESP8266 Using a Raspberry Pi</h1>
+			<div class="meta">Posted at &mdash; Dec 23, 2024</div>
+		</div>
+
+		<div class="markdown">
+			<p>In this guide I will be explaining how I flash an ESP8266 chip using a
+Raspberry Pi. More specifically; a Raspberry Pi 2. But any model with GPIO pins
+will do. In this guide I will be flashing <a href="https://micropython.org/">MicroPython</a>
+on the chip.</p>
+<p>First of all an important clarification; when I&rsquo;m talking about an ESP8266, I
+actually mean an ESP12F mounted on a development board with no USB-port or
+buttons to go into flash-mode. The difference in versions of an ESP8266 was not
+that clear to me in the beginning. But now it&rsquo;s a bit more clear to me.
+Basically it comes down to this; ESP8266 is the actual SoC, this is then mounted
+on a module, which contains an antenna etc. Example of these modules are; ESP12F
+and ESP12E. This combination can then be used on a development board. This
+development board can contain breadboard pins, a USB connector, buttons to go
+into flash mode etc. My module only contains breadboard pins. This is why I was
+struggling in the beginning of using this chip to actually being able to flash
+something on it. But now I know how I can flash something on the chip only using
+some basic electronic components and a Raspberry Pi I had lying around.</p>
+<p>The electronic parts needed for this are the following:</p>
+<ul>
+<li>Two breadboards (the ESP8266 module is too big to fit onto one, and still have
+pins reachable)</li>
+<li>Four 10k ohm resistors</li>
+<li>Two buttons</li>
+<li>Some jumper wires</li>
+<li>A Raspberry Pi</li>
+<li>An AMS1117 voltage divider</li>
+</ul>
+<p>The setup should look like this:
+<img src="/posts/flash-esp8266-using-raspberry-pi2/images/flashing_scheme.svg" alt="Wiring"></p>
+<p>What we are basically doing here is powering the board, and making sure the
+correct pins are in the correct state (pulled down or up) to be in running mode.
+The AMS1117 voltage divider is used so that we can draw the current from the 5v
+rail of the Raspberry Pi and convert this into the 3.3v the ESP8266 needs. As
+far as I know the 3.3v rails on the Raspberry Pi can only generate a small
+amount of current, probably not enough to power an ESP8266. The buttons are
+used to put the chip into download-mode. But when they are not pressed, the
+chip is in running mode. Here you can see a table showing how the pins need to
+be configured depending on the mode:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Mode</th>
+          <th>CH_PD(EN)</th>
+          <th>RST</th>
+          <th>GPIO15</th>
+          <th>GPIO0</th>
+          <th>GPIO2</th>
+          <th>TXD0</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Download mode</td>
+          <td>high</td>
+          <td>high</td>
+          <td>low</td>
+          <td>low</td>
+          <td>high</td>
+          <td>high</td>
+      </tr>
+      <tr>
+          <td>Running mode</td>
+          <td>high</td>
+          <td>high</td>
+          <td>low</td>
+          <td>high</td>
+          <td>high</td>
+          <td>high</td>
+      </tr>
+  </tbody>
+</table>
+<p>For the software, I used Raspberry Pi OS. The serial hardware will need to be
+enabled. I go more into detail about this in <a href="/posts/how-to-use-a-pi-instead-of-a-usb-console-cable">this</a>
+article. A short overview of what needs to be done:</p>
+<ol>
+<li>Start raspi-config: <code>sudo raspi-config</code></li>
+<li>Select option 3 - Interface Options.</li>
+<li>Select option P6 - Serial Port.</li>
+<li>At the prompt <code>Would you like a login shell to be accessible over serial?</code> answer &lsquo;No&rsquo;</li>
+<li>At the prompt <code>Would you like the serial port hardware to be enabled? answer</code> &lsquo;Yes&rsquo;</li>
+<li>Exit raspi-config and reboot.</li>
+</ol>
+<p>Only needed when you have a Pi with built-in Bluetooth:</p>
+<ol>
+<li>Add <code>dtoverlay=disable-bt</code> to the <code>/boot/config.txt</code>-file.</li>
+<li>Execute <code>sudo systemctl disable hciuart</code>.</li>
+<li>Reboot</li>
+</ol>
+<p>We also need some utilities, namely <a href="https://github.com/npat-efault/picocom">Picocom</a>
+for opening a serial connection, and <a href="https://github.com/espressif/esptool">esptool</a>
+for actually flashing stuff to the ESP8266. Both these utilities can be installed
+by executing the following commands:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#555">$</span> sudo apt update
+</span></span><span style="display:flex;"><span><span style="color:#555">$</span> sudo apt install picocom esptool
+</span></span></code></pre></div><p>If everything is physically connected, and software is installed, you could
+already try to open a serial connection:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ picocom -b 115200 /dev/ttyAMA0
+</span></span></code></pre></div><p>If you have not previously put flashed anything to the ESP8266, you probably
+have the default espressif ROM on the chip. You could try the <code>AT</code>-command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#555">&gt;</span> AT
+</span></span></code></pre></div><p>Now for the exciting bit; going into download mode! To go into download-mode,
+you will need to hold down the button going to GPIO0. While holding that button
+down, press the button going towards the RST pin (this resets the board). You
+should now be in download-mode, and you can let go of the button going towards
+GPIO0.</p>
+<p>To verify you are actually in download mode, you could execute the following
+command on the Raspberry Pi:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#555">$</span> esptool --port /dev/ttyAMA0 flash_id
+</span></span></code></pre></div><p>This should return something like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>esptool.py v2.<span style="color:#00d;font-weight:bold">5.1</span>                         
+</span></span><span style="display:flex;"><span>Serial port /dev/ttyAMA0
+</span></span><span style="display:flex;"><span>Connecting....                    
+</span></span><span style="display:flex;"><span>Detecting chip type... ESP8266        
+</span></span><span style="display:flex;"><span>Chip is ESP8266EX                                
+</span></span><span style="display:flex;"><span>Features: WiFi                                                                                            
+</span></span><span style="display:flex;"><span>MAC: ...
+</span></span><span style="display:flex;"><span>Enabling default SPI flash mode...                                                                        
+</span></span><span style="display:flex;"><span>Manufacturer: e0                   
+</span></span><span style="display:flex;"><span>Device: <span style="color:#00d;font-weight:bold">4016</span>
+</span></span><span style="display:flex;"><span>Detected flash size: <span style="color:#00d;font-weight:bold">4</span>MB
+</span></span><span style="display:flex;"><span>Hard resetting via RTS pin...
+</span></span></code></pre></div><p>For actually flashing something to it, I will be flashing the latest version
+(as of writing this) of <a href="https://micropython.org/">MicroPython</a> to the board.
+You can download the latest version from <a href="https://micropython.org/download/ESP8266_GENERIC/">here</a>.
+Once the file is downloaded, and available in the current working directory,
+the following commands can be executed:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#555">$</span> esptool --port /dev/ttyAMA0 erase_flash
+</span></span><span style="display:flex;"><span><span style="color:#555">$</span> esptool --port /dev/ttyAMA0 --baud <span style="color:#00d;font-weight:bold">460800</span> write_flash --flash_size=detect <span style="color:#00d;font-weight:bold">0</span> ESP8266_GENERIC-20241129-v1.24.1.bin 
+</span></span></code></pre></div><p>The <code>erase_flash</code> command actually failed on my board, but this didn&rsquo;t seem to
+effect the final result.</p>
+<p>That&rsquo;s it. Happy holidays!</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/raspberry-pi">raspberry-pi</a></li>
+								
+								<li><a href="/tags/serial">serial</a></li>
+								
+								<li><a href="/tags/esp8266">esp8266</a></li>
+								
+								<li><a href="/tags/esp12f">esp12f</a></li>
+								
+								<li><a href="/tags/micropython">micropython</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

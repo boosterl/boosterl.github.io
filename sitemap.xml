@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://worldbeyondlinux.be/tags/esp12f/</loc>
+    <lastmod>2024-12-23T17:50:44+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/esp8266/</loc>
+    <lastmod>2024-12-23T17:50:44+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/posts/flash-esp8266-using-raspberry-pi2/</loc>
+    <lastmod>2024-12-23T17:50:44+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/micropython/</loc>
+    <lastmod>2024-12-23T17:50:44+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/posts/</loc>
+    <lastmod>2024-12-23T17:50:44+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/raspberry-pi/</loc>
+    <lastmod>2024-12-23T17:50:44+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/serial/</loc>
+    <lastmod>2024-12-23T17:50:44+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/</loc>
+    <lastmod>2024-12-23T17:50:44+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/</loc>
+    <lastmod>2024-12-23T17:50:44+01:00</lastmod>
+  </url><url>
     <loc>https://worldbeyondlinux.be/tags/gpio/</loc>
     <lastmod>2023-06-03T13:37:07+02:00</lastmod>
   </url><url>
@@ -11,16 +38,7 @@
     <loc>https://worldbeyondlinux.be/tags/mangopi-mq-pro/</loc>
     <lastmod>2023-06-03T13:37:07+02:00</lastmod>
   </url><url>
-    <loc>https://worldbeyondlinux.be/posts/</loc>
-    <lastmod>2023-06-03T13:37:07+02:00</lastmod>
-  </url><url>
     <loc>https://worldbeyondlinux.be/tags/risc-v/</loc>
-    <lastmod>2023-06-03T13:37:07+02:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/tags/</loc>
-    <lastmod>2023-06-03T13:37:07+02:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/</loc>
     <lastmod>2023-06-03T13:37:07+02:00</lastmod>
   </url><url>
     <loc>https://worldbeyondlinux.be/tags/ubuntu/</loc>
@@ -48,12 +66,6 @@
     <lastmod>2022-09-19T18:44:12+02:00</lastmod>
   </url><url>
     <loc>https://worldbeyondlinux.be/posts/how-to-use-a-pi-instead-of-a-usb-console-cable/</loc>
-    <lastmod>2022-08-28T11:39:44+02:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/tags/raspberry-pi/</loc>
-    <lastmod>2022-08-28T11:39:44+02:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/tags/serial/</loc>
     <lastmod>2022-08-28T11:39:44+02:00</lastmod>
   </url><url>
     <loc>https://worldbeyondlinux.be/tags/adb/</loc>

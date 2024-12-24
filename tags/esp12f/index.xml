@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Serial on The world beyond Linux</title>
-    <link>https://worldbeyondlinux.be/tags/serial/</link>
-    <description>Recent content in Serial on The world beyond Linux</description>
+    <title>Esp12f on The world beyond Linux</title>
+    <link>https://worldbeyondlinux.be/tags/esp12f/</link>
+    <description>Recent content in Esp12f on The world beyond Linux</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Dec 2024 17:50:44 +0100</lastBuildDate>
-    <atom:link href="https://worldbeyondlinux.be/tags/serial/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://worldbeyondlinux.be/tags/esp12f/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Flash an ESP8266 Using a Raspberry Pi</title>
       <link>https://worldbeyondlinux.be/posts/flash-esp8266-using-raspberry-pi2/</link>
       <pubDate>Mon, 23 Dec 2024 17:50:44 +0100</pubDate>
       <guid>https://worldbeyondlinux.be/posts/flash-esp8266-using-raspberry-pi2/</guid>
       <description>&lt;p&gt;In this guide I will be explaining how I flash an ESP8266 chip using a&#xA;Raspberry Pi. More specifically; a Raspberry Pi 2. But any model with GPIO pins&#xA;will do. In this guide I will be flashing &lt;a href=&#34;https://micropython.org/&#34;&gt;MicroPython&lt;/a&gt;&#xA;on the chip.&lt;/p&gt;&#xA;&lt;p&gt;First of all an important clarification; when I&amp;rsquo;m talking about an ESP8266, I&#xA;actually mean an ESP12F mounted on a development board with no USB-port or&#xA;buttons to go into flash-mode. The difference in versions of an ESP8266 was not&#xA;that clear to me in the beginning. But now it&amp;rsquo;s a bit more clear to me.&#xA;Basically it comes down to this; ESP8266 is the actual SoC, this is then mounted&#xA;on a module, which contains an antenna etc. Example of these modules are; ESP12F&#xA;and ESP12E. This combination can then be used on a development board. This&#xA;development board can contain breadboard pins, a USB connector, buttons to go&#xA;into flash mode etc. My module only contains breadboard pins. This is why I was&#xA;struggling in the beginning of using this chip to actually being able to flash&#xA;something on it. But now I know how I can flash something on the chip only using&#xA;some basic electronic components and a Raspberry Pi I had lying around.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How to Use a Raspberry Pi Instead of a USB Console Cable</title>
-      <link>https://worldbeyondlinux.be/posts/how-to-use-a-pi-instead-of-a-usb-console-cable/</link>
-      <pubDate>Sun, 28 Aug 2022 11:39:44 +0200</pubDate>
-      <guid>https://worldbeyondlinux.be/posts/how-to-use-a-pi-instead-of-a-usb-console-cable/</guid>
-      <description>&lt;p&gt;As the title says, this article will be about using a Raspberry Pi SBC (whatever model), instead of a USB Console Cable to debug another SBC, router, microcontroller&amp;hellip; The need for this came when I received my &lt;a href=&#34;https://mangopi.cc/mangopi_mqpro&#34;&gt;MangoPi MQ-Pro&lt;/a&gt;, I wanted to try different operating systems for this SBC, but I didn&amp;rsquo;t have access to a USB Console Cable, at least not one that was 3.3V tolerant. I wanted to have access to the serial console because a lot of OS images for the MangoPi, at the time of writing this article, didn&amp;rsquo;t have HDMI drivers. I have already used a Raspberry Pi to flash and interact with micropython on an ESP8266, so I thought, why not use the same method to interact with my new MangoPi.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

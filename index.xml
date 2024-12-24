@@ -6,8 +6,15 @@
     <description>Recent content on The world beyond Linux</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Jun 2023 13:37:07 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 23 Dec 2024 17:50:44 +0100</lastBuildDate>
     <atom:link href="https://worldbeyondlinux.be/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flash an ESP8266 Using a Raspberry Pi</title>
+      <link>https://worldbeyondlinux.be/posts/flash-esp8266-using-raspberry-pi2/</link>
+      <pubDate>Mon, 23 Dec 2024 17:50:44 +0100</pubDate>
+      <guid>https://worldbeyondlinux.be/posts/flash-esp8266-using-raspberry-pi2/</guid>
+      <description>&lt;p&gt;In this guide I will be explaining how I flash an ESP8266 chip using a&#xA;Raspberry Pi. More specifically; a Raspberry Pi 2. But any model with GPIO pins&#xA;will do. In this guide I will be flashing &lt;a href=&#34;https://micropython.org/&#34;&gt;MicroPython&lt;/a&gt;&#xA;on the chip.&lt;/p&gt;&#xA;&lt;p&gt;First of all an important clarification; when I&amp;rsquo;m talking about an ESP8266, I&#xA;actually mean an ESP12F mounted on a development board with no USB-port or&#xA;buttons to go into flash-mode. The difference in versions of an ESP8266 was not&#xA;that clear to me in the beginning. But now it&amp;rsquo;s a bit more clear to me.&#xA;Basically it comes down to this; ESP8266 is the actual SoC, this is then mounted&#xA;on a module, which contains an antenna etc. Example of these modules are; ESP12F&#xA;and ESP12E. This combination can then be used on a development board. This&#xA;development board can contain breadboard pins, a USB connector, buttons to go&#xA;into flash mode etc. My module only contains breadboard pins. This is why I was&#xA;struggling in the beginning of using this chip to actually being able to flash&#xA;something on it. But now I know how I can flash something on the chip only using&#xA;some basic electronic components and a Raspberry Pi I had lying around.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>GPIO on the MangoPi MQ-Pro</title>
       <link>https://worldbeyondlinux.be/posts/gpio-on-the-mango-pi/</link>
