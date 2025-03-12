@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gentoo on The world beyond Linux</title>
+    <link>https://worldbeyondlinux.be/tags/gentoo/</link>
+    <description>Recent content in Gentoo on The world beyond Linux</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Mar 2025 13:55:34 +0100</lastBuildDate>
+    <atom:link href="https://worldbeyondlinux.be/tags/gentoo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Playing around with Gentoo on riscv32</title>
+      <link>https://worldbeyondlinux.be/posts/play-with-gentoo-rv32/</link>
+      <pubDate>Wed, 12 Mar 2025 13:55:34 +0100</pubDate>
+      <guid>https://worldbeyondlinux.be/posts/play-with-gentoo-rv32/</guid>
+      <description>&lt;p&gt;Since the first time I learned about the existence of RISC-V, I have been&#xA;fascinated by it. I wanted to run operating systems on it, and try out software&#xA;on the ISA.&lt;/p&gt;&#xA;&lt;p&gt;In the beginning this was made possible by emulation, and the last years I&#xA;treated myself with two physical pieces of RISC-V hardware. But these means&#xA;of playing around with RISC-V had a thing in common; it was using the 64-bit&#xA;version of the ISA (riscv64).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
