@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Playing around with Gentoo on riscv32 - The world beyond Linux</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:url" content="http://localhost:1313/posts/play-with-gentoo-rv32/">
+  <meta property="og:site_name" content="The world beyond Linux">
+  <meta property="og:title" content="Playing around with Gentoo on riscv32">
+  <meta property="og:description" content="Since the first time I learned about the existence of RISC-V, I have been fascinated by it. I wanted to run operating systems on it, and try out software on the ISA.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-12T13:55:34+01:00">
+    <meta property="article:modified_time" content="2025-03-12T13:55:34+01:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Playing around with Gentoo on riscv32">
+  <meta name="twitter:description" content="Since the first time I learned about the existence of RISC-V, I have been fascinated by it. I wanted to run operating systems on it, and try out software on the ISA.">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.css" /><link rel="stylesheet" type="text/css" href="http://localhost:1313/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="http://localhost:1313/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="http://localhost:1313/">
+	<h1 class="site-title"><a href="http://localhost:1313/">The world beyond Linux</a></h1>
+	<div class="site-description"><h2>My personal blog about Linux, FOSS, personal projects and other things</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/boosterl" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Playing around with Gentoo on riscv32</h1>
+			<div class="meta">Posted at &mdash; Mar 12, 2025 <span class="draft-label">DRAFT</span> </div>
+		</div>
+
+		<div class="markdown">
+			<p>Since the first time I learned about the existence of RISC-V, I have been
+fascinated by it. I wanted to run operating systems on it, and try out software
+on the ISA.</p>
+<p>In the beginning this was made possible by emulation, and the last years I
+treated myself with two physical pieces of RISC-V hardware. But these means
+of playing around with RISC-V had a thing in common; it was using the 64-bit
+version of the ISA (riscv64).</p>
+<p>I also wanted to play around with the 32-bit variant of RISC-V. After looking
+around a bit on the internet I found some references for a <a href="https://wiki.debian.org/RISC-V/32">Debian riscv32 port</a>.
+But this is something I would have to do a lot of setup for myself, or use a
+downstream rootfs. I wanted to use an official rootfs built by the distribution
+maintainers themselves.</p>
+<p>After searching some more I found out <a href="https://www.gentoo.org/downloads/#riscv">Gentoo</a>
+offers &ldquo;stage 3&rdquo; tarballs for riscv32!</p>
+<p>Now, how do you actually get a shell in this rootfs? The answer for this can be
+found in the ability for <a href="https://podman.io/">Podman</a> to run images
+<a href="https://wiki.archlinux.org/title/Podman#Foreign_architectures">built for foreign architectures</a>.
+It&rsquo;s pretty simple from this point to get thins running if systemd-binfmt is
+installed and configured:</p>
+<ol>
+<li>Download the Gentoo riscv32 stage 3 tarball from <a href="https://podman.io/">this page</a>.
+I used the &ldquo;musl-variant&rdquo;. But other variants should also work.</li>
+<li>Import the tarball as a container image, and change the entrypoint to a more
+powerful shell:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ podman import --arch riscv32 --change <span style="color:#369">ENTRYPOINT</span>=/usr/bin/bash stage3-rv32_ilp32_musl-&lt;<span style="color:#369">$BUILD_DATE</span>&gt;.tar gentoo-riscv32
+</span></span></code></pre></div><ol start="3">
+<li>Actually run the image in a container:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ podman run -it --rm --arch riscv32 gentoo-riscv32:latest 
+</span></span></code></pre></div><p>That&rsquo;s it! You&rsquo;re now running riscv32 binaries, inside a Gentoo rootfs, using
+QEMU user mode emulation:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>5468377bf688 / # arch
+</span></span><span style="display:flex;"><span>riscv32
+</span></span><span style="display:flex;"><span>5468377bf688 / # file /bin/bash
+</span></span><span style="display:flex;"><span>/bin/bash: ELF 32-bit LSB pie executable, UCB RISC-V, RVC, soft-float ABI, version 1 (SYSV), dynamically linked, interpreter /lib/ld-musl-riscv32-sf.so.1, stripped
+</span></span></code></pre></div><p>As a bonus, let&rsquo;s try installing <a href="https://github.com/fastfetch-cli/fastfetch">fastfetch</a>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>5468377bf688 / # emerge --sync
+</span></span><span style="display:flex;"><span>5468377bf688 / # emerge --ask app-misc/fastfetch
+</span></span></code></pre></div><p>This only took 66 minutes on my laptop with a Intel Core Ultra 7 155U&hellip; But it
+works!
+<img src="posts/play-with-gentoo-rv32/images/fastfetch.png" alt="fastfetch on riscv32"></p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>
