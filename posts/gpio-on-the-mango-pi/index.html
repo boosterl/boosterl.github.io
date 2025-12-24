@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html><head lang="en">
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>GPIO on the MangoPi MQ-Pro - The world beyond Linux</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>GPIO on the MangoPi MQ-Pro - The World Beyond Linux</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="One of the last aspects I wanted to explore and get working on my MangoPi MQ-Pro, is GPIO. For this experiment, like my previous endeavor trying out Bluetooth on my MangoPi MQ-Pro, I used the Ubuntu 22.10 RISC-V image for the SiPeed LicheeRV Dock image." />
+	<meta property="og:image" content=""/>
 	<meta property="og:url" content="https://worldbeyondlinux.be/posts/gpio-on-the-mango-pi/">
-  <meta property="og:site_name" content="The world beyond Linux">
+  <meta property="og:site_name" content="The World Beyond Linux">
   <meta property="og:title" content="GPIO on the MangoPi MQ-Pro">
   <meta property="og:description" content="One of the last aspects I wanted to explore and get working on my MangoPi MQ-Pro, is GPIO. For this experiment, like my previous endeavor trying out Bluetooth on my MangoPi MQ-Pro, I used the Ubuntu 22.10 RISC-V image for the SiPeed LicheeRV Dock image.">
   <meta property="og:locale" content="en_us">
@@ -20,52 +21,42 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="GPIO on the MangoPi MQ-Pro">
   <meta name="twitter:description" content="One of the last aspects I wanted to explore and get working on my MangoPi MQ-Pro, is GPIO. For this experiment, like my previous endeavor trying out Bluetooth on my MangoPi MQ-Pro, I used the Ubuntu 22.10 RISC-V image for the SiPeed LicheeRV Dock image.">
-<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
-	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.css" /><link rel="stylesheet" type="text/css" href="https://worldbeyondlinux.be/css/dark.css" media="(prefers-color-scheme: dark)" />
+        <link href="https://worldbeyondlinux.be/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
 
-	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-	<script src="https://worldbeyondlinux.be/js/main.js"></script>
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.7a5c05040394322612a2d98397e9932aa81d9d7acc70199463e79f8180c8e0c0.css" />
 </head>
-
 <body>
-	<div class="container wrapper post">
-		<div class="header">
-	<base href="https://worldbeyondlinux.be/">
-	<h1 class="site-title"><a href="https://worldbeyondlinux.be/">The world beyond Linux</a></h1>
-	<div class="site-description"><h2>My personal blog about Linux, FOSS, personal projects and other things</h2><nav class="nav social">
-			<ul class="flat"><a href="https://github.com/boosterl" title="Github"><i data-feather="github"></i></a></ul>
-		</nav>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://worldbeyondlinux.be/">The World Beyond Linux</a>
 	</div>
-
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/">Home</a>
-			</li>
-			
-			<li>
-				<a href="/posts">All posts</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-		</ul>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/tags">Tags</a>
+		
+		
 	</nav>
-</div>
+</header>
 
-
-		<div class="post-header">
-			<h1 class="title">GPIO on the MangoPi MQ-Pro</h1>
-			<div class="meta">Posted at &mdash; Jun 3, 2023</div>
-		</div>
-
-		<div class="markdown">
-			<p>One of the last aspects I wanted to explore and get working on my MangoPi
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">GPIO on the MangoPi MQ-Pro</h1>
+          <div class="meta">Posted on Jun 3, 2023</div>
+        </div>
+        
+        <section class="body">
+          <p>One of the last aspects I wanted to explore and get working on my MangoPi
 MQ-Pro, is GPIO. For this experiment, like my previous endeavor
 <a href="https://worldbeyondlinux.be/posts/bluetooth-on-the-mango-pi/">trying out Bluetooth on my MangoPi MQ-Pro</a>,
 I used the <a href="https://ubuntu.com/download/risc-v">Ubuntu 22.10 RISC-V image for the SiPeed LicheeRV Dock</a>
@@ -218,94 +209,104 @@ for this:</p>
 <p>So, if you have connected an output (LED) to pin 18, we need to access this
 using pin 110. With the following command we can start interacting with this
 exact pin, these will have to be ran as root:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#555">#</span> <span style="color:#038">echo</span> <span style="color:#00d;font-weight:bold">110</span> &gt; /sys/class/gpio/export
-</span></span><span style="display:flex;"><span><span style="color:#555">#</span> <span style="color:#038">echo</span> out &gt; /sys/class/gpio/gpio110/direction
-</span></span><span style="display:flex;"><span><span style="color:#555">#</span> cat /sys/class/gpio/gpio110/direction
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span># echo <span style="color:#ae81ff">110</span> &gt; /sys/class/gpio/export
+</span></span><span style="display:flex;"><span># echo out &gt; /sys/class/gpio/gpio110/direction
+</span></span><span style="display:flex;"><span># cat /sys/class/gpio/gpio110/direction
 </span></span></code></pre></div><p>To make the LED light up, you can execute this command:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#555">#</span> <span style="color:#038">echo</span> <span style="color:#00d;font-weight:bold">1</span> &gt; /sys/class/gpio/gpio110/value
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span># echo <span style="color:#ae81ff">1</span> &gt; /sys/class/gpio/gpio110/value
 </span></span></code></pre></div><p>And to turn it off again:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#555">#</span> <span style="color:#038">echo</span> <span style="color:#00d;font-weight:bold">0</span> &gt; /sys/class/gpio/gpio110/value
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span># echo <span style="color:#ae81ff">0</span> &gt; /sys/class/gpio/gpio110/value
 </span></span></code></pre></div><p>When you&rsquo;re done playing around, you can remove the resources to this pin:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#555">#</span> <span style="color:#038">echo</span> <span style="color:#00d;font-weight:bold">110</span> &gt; /sys/class/gpio/unexport
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span># echo <span style="color:#ae81ff">110</span> &gt; /sys/class/gpio/unexport
 </span></span></code></pre></div><p>To make the LED blink, you can create a simple script:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">while</span> <span style="color:#038">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#038">echo</span> <span style="color:#00d;font-weight:bold">0</span> &gt; /sys/class/gpio/gpio110/value
-</span></span><span style="display:flex;"><span>        sleep <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#038">echo</span> <span style="color:#00d;font-weight:bold">1</span> &gt; /sys/class/gpio/gpio110/value
-</span></span><span style="display:flex;"><span>        sleep <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">done</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> true
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#ae81ff">0</span> &gt; /sys/class/gpio/gpio110/value
+</span></span><span style="display:flex;"><span>        sleep <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#ae81ff">1</span> &gt; /sys/class/gpio/gpio110/value
+</span></span><span style="display:flex;"><span>        sleep <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
 </span></span></code></pre></div><h1 id="userspace-gpio-driver">Userspace GPIO driver</h1>
 <p>To make the same LED turn on as in the previous step, you can execute:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#555">#</span> gpioset gpiochip0 <span style="color:#369">110</span>=<span style="color:#00d;font-weight:bold">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span># gpioset gpiochip0 110<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 </span></span></code></pre></div><p>And to turn if off again:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#555">#</span> gpioset gpiochip0 <span style="color:#369">110</span>=<span style="color:#00d;font-weight:bold">0</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span># gpioset gpiochip0 110<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
 </span></span></code></pre></div><p>And a script to make it blink:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">while</span> <span style="color:#038">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>        gpioset gpiochip0 <span style="color:#369">110</span>=<span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        sleep <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        gpioset gpiochip0 <span style="color:#369">110</span>=<span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        sleep <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">done</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> true
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        gpioset gpiochip0 110<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        sleep <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        gpioset gpiochip0 110<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        sleep <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
 </span></span></code></pre></div><h1 id="lgpio-from-python">Lgpio from Python</h1>
 <p>To use the GPIO pins from Python, we will have to install a package:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#555">#</span> apt update
-</span></span><span style="display:flex;"><span><span style="color:#555">#</span> apt install python3-lgpio
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span># apt update
+</span></span><span style="display:flex;"><span># apt install python3-lgpio
 </span></span></code></pre></div><p>You can create a script name <code>blink.py</code> to make the GPIO pin blink:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">time</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">lgpio</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> lgpio
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>LED = <span style="color:#00d;font-weight:bold">110</span>
+</span></span><span style="display:flex;"><span>LED <span style="color:#f92672">=</span> <span style="color:#ae81ff">110</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># open the gpio chip and set the LED pin as output</span>
-</span></span><span style="display:flex;"><span>h = lgpio.gpiochip_open(<span style="color:#00d;font-weight:bold">0</span>)
-</span></span><span style="display:flex;"><span>lgpio.gpio_claim_output(h, LED)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># open the gpio chip and set the LED pin as output</span>
+</span></span><span style="display:flex;"><span>h <span style="color:#f92672">=</span> lgpio<span style="color:#f92672">.</span>gpiochip_open(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>lgpio<span style="color:#f92672">.</span>gpio_claim_output(h, LED)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">try</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">while</span> <span style="color:#080;font-weight:bold">True</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># Turn the GPIO pin on</span>
-</span></span><span style="display:flex;"><span>        lgpio.gpio_write(h, LED, <span style="color:#00d;font-weight:bold">1</span>)
-</span></span><span style="display:flex;"><span>        time.sleep(<span style="color:#00d;font-weight:bold">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Turn the GPIO pin on</span>
+</span></span><span style="display:flex;"><span>        lgpio<span style="color:#f92672">.</span>gpio_write(h, LED, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># Turn the GPIO pin off</span>
-</span></span><span style="display:flex;"><span>        lgpio.gpio_write(h, LED, <span style="color:#00d;font-weight:bold">0</span>)
-</span></span><span style="display:flex;"><span>        time.sleep(<span style="color:#00d;font-weight:bold">1</span>)
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">except</span> <span style="color:#b06;font-weight:bold">KeyboardInterrupt</span>:
-</span></span><span style="display:flex;"><span>    lgpio.gpio_write(h, LED, <span style="color:#00d;font-weight:bold">0</span>)
-</span></span><span style="display:flex;"><span>    lgpio.gpiochip_close(h)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Turn the GPIO pin off</span>
+</span></span><span style="display:flex;"><span>        lgpio<span style="color:#f92672">.</span>gpio_write(h, LED, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#a6e22e">KeyboardInterrupt</span>:
+</span></span><span style="display:flex;"><span>    lgpio<span style="color:#f92672">.</span>gpio_write(h, LED, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    lgpio<span style="color:#f92672">.</span>gpiochip_close(h)
 </span></span></code></pre></div><p>When executing the script by executing <code>python3 blink.py</code>, the LED should blink.</p>
 
-		</div>
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/mangopi-mq-pro">mangopi-mq-pro</a></li>
+              
+              <li><a href="/tags/risc-v">risc-v</a></li>
+              
+              <li><a href="/tags/gpio">gpio</a></li>
+              
+              <li><a href="/tags/ubuntu">ubuntu</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
 
-		<div class="post-tags">
-			
-				
-					<nav class="nav tags">
-							<ul class="flat">
-								
-								<li><a href="/tags/mangopi-mq-pro">mangopi-mq-pro</a></li>
-								
-								<li><a href="/tags/risc-v">risc-v</a></li>
-								
-								<li><a href="/tags/gpio">gpio</a></li>
-								
-								<li><a href="/tags/ubuntu">ubuntu</a></li>
-								
-							</ul>
-					</nav>
-				
-			
-		</div>
-		</div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
-	</nav>
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/boosterl" rel="me" title="Github"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2025  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+
 </div>
-
-
-
-<script>feather.replace()</script>
-</body>
+    </body>
 </html>

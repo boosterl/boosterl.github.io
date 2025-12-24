@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html><head lang="en">
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Playing around with Gentoo on riscv32 - The world beyond Linux</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Playing around with Gentoo on riscv32 - The World Beyond Linux</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Since the first time I learned about the existence of RISC-V, I have been fascinated by it. I wanted to run operating systems on it, and try out software on the ISA." />
+	<meta property="og:image" content=""/>
 	<meta property="og:url" content="https://worldbeyondlinux.be/posts/play-with-gentoo-rv32/">
-  <meta property="og:site_name" content="The world beyond Linux">
+  <meta property="og:site_name" content="The World Beyond Linux">
   <meta property="og:title" content="Playing around with Gentoo on riscv32">
   <meta property="og:description" content="Since the first time I learned about the existence of RISC-V, I have been fascinated by it. I wanted to run operating systems on it, and try out software on the ISA.">
   <meta property="og:locale" content="en_us">
@@ -19,52 +20,42 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Playing around with Gentoo on riscv32">
   <meta name="twitter:description" content="Since the first time I learned about the existence of RISC-V, I have been fascinated by it. I wanted to run operating systems on it, and try out software on the ISA.">
-<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
-	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.css" /><link rel="stylesheet" type="text/css" href="https://worldbeyondlinux.be/css/dark.css" media="(prefers-color-scheme: dark)" />
+        <link href="https://worldbeyondlinux.be/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
 
-	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-	<script src="https://worldbeyondlinux.be/js/main.js"></script>
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.7a5c05040394322612a2d98397e9932aa81d9d7acc70199463e79f8180c8e0c0.css" />
 </head>
-
 <body>
-	<div class="container wrapper post">
-		<div class="header">
-	<base href="https://worldbeyondlinux.be/">
-	<h1 class="site-title"><a href="https://worldbeyondlinux.be/">The world beyond Linux</a></h1>
-	<div class="site-description"><h2>My personal blog about Linux, FOSS, personal projects and other things</h2><nav class="nav social">
-			<ul class="flat"><a href="https://github.com/boosterl" title="Github"><i data-feather="github"></i></a></ul>
-		</nav>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://worldbeyondlinux.be/">The World Beyond Linux</a>
 	</div>
-
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/">Home</a>
-			</li>
-			
-			<li>
-				<a href="/posts">All posts</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-		</ul>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/tags">Tags</a>
+		
+		
 	</nav>
-</div>
+</header>
 
-
-		<div class="post-header">
-			<h1 class="title">Playing around with Gentoo on riscv32</h1>
-			<div class="meta">Posted at &mdash; Mar 12, 2025</div>
-		</div>
-
-		<div class="markdown">
-			<p>Since the first time I learned about the existence of RISC-V, I have been
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">Playing around with Gentoo on riscv32</h1>
+          <div class="meta">Posted on Mar 12, 2025</div>
+        </div>
+        
+        <section class="body">
+          <p>Since the first time I learned about the existence of RISC-V, I have been
 fascinated by it. I wanted to run operating systems on it, and try out software
 on the ISA.</p>
 <p>In the beginning this was made possible by emulation, and the last years I
@@ -89,52 +80,62 @@ I used the &ldquo;musl-variant&rdquo;. But other variants should also work.</li>
 <li>Import the tarball as a container image, and change the entrypoint to a more
 powerful shell:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ podman import --arch riscv32 --change <span style="color:#369">ENTRYPOINT</span>=/usr/bin/bash stage3-rv32_ilp32_musl-&lt;<span style="color:#369">$BUILD_DATE</span>&gt;.tar gentoo-riscv32
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ podman import --arch riscv32 --change ENTRYPOINT<span style="color:#f92672">=</span>/usr/bin/bash stage3-rv32_ilp32_musl-&lt;$BUILD_DATE&gt;.tar gentoo-riscv32
 </span></span></code></pre></div><ol start="3">
 <li>Actually run the image in a container:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ podman run -it --rm --arch riscv32 gentoo-riscv32:latest 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ podman run -it --rm --arch riscv32 gentoo-riscv32:latest 
 </span></span></code></pre></div><p>That&rsquo;s it! You&rsquo;re now running riscv32 binaries, inside a Gentoo rootfs, using
 QEMU user mode emulation:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>5468377bf688 / # arch
-</span></span><span style="display:flex;"><span>riscv32
-</span></span><span style="display:flex;"><span>5468377bf688 / # file /bin/bash
-</span></span><span style="display:flex;"><span>/bin/bash: ELF 32-bit LSB pie executable, UCB RISC-V, RVC, soft-float ABI, version 1 (SYSV), dynamically linked, interpreter /lib/ld-musl-riscv32-sf.so.1, stripped
-</span></span></code></pre></div><p>As a bonus, let&rsquo;s try installing <a href="https://github.com/fastfetch-cli/fastfetch">fastfetch</a>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>5468377bf688 / # emerge --sync
-</span></span><span style="display:flex;"><span>5468377bf688 / # emerge --ask app-misc/fastfetch
-</span></span></code></pre></div><p>This only took 66 minutes on my laptop with a Intel Core Ultra 7 155U&hellip; But it
+<pre tabindex="0"><code>5468377bf688 / # arch
+riscv32
+5468377bf688 / # file /bin/bash
+/bin/bash: ELF 32-bit LSB pie executable, UCB RISC-V, RVC, soft-float ABI, version 1 (SYSV), dynamically linked, interpreter /lib/ld-musl-riscv32-sf.so.1, stripped
+</code></pre><p>As a bonus, let&rsquo;s try installing <a href="https://github.com/fastfetch-cli/fastfetch">fastfetch</a>:</p>
+<pre tabindex="0"><code>5468377bf688 / # emerge --sync
+5468377bf688 / # emerge --ask app-misc/fastfetch
+</code></pre><p>This only took 66 minutes on my laptop with a Intel Core Ultra 7 155U&hellip; But it
 works!
 <img src="posts/play-with-gentoo-rv32/images/fastfetch.png" alt="fastfetch on riscv32"></p>
 
-		</div>
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/gentoo">gentoo</a></li>
+              
+              <li><a href="/tags/podman">podman</a></li>
+              
+              <li><a href="/tags/risc-v">risc-v</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
 
-		<div class="post-tags">
-			
-				
-					<nav class="nav tags">
-							<ul class="flat">
-								
-								<li><a href="/tags/gentoo">gentoo</a></li>
-								
-								<li><a href="/tags/podman">podman</a></li>
-								
-								<li><a href="/tags/risc-v">risc-v</a></li>
-								
-							</ul>
-					</nav>
-				
-			
-		</div>
-		</div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
-	</nav>
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/boosterl" rel="me" title="Github"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2025  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+
 </div>
-
-
-
-<script>feather.replace()</script>
-</body>
+    </body>
 </html>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html><head lang="en">
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Running x86_64 Software on RISC-V Using Box64 - The world beyond Linux</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Running x86_64 Software on RISC-V Using Box64 - The World Beyond Linux</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a MangoPi MQ-Pro. We will be using an awesome piece of software called Box64." />
+	<meta property="og:image" content=""/>
 	<meta property="og:url" content="https://worldbeyondlinux.be/posts/running-x86-64-software-on-riscv-using-box64/">
-  <meta property="og:site_name" content="The world beyond Linux">
+  <meta property="og:site_name" content="The World Beyond Linux">
   <meta property="og:title" content="Running x86_64 Software on RISC-V Using Box64">
   <meta property="og:description" content="In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a MangoPi MQ-Pro. We will be using an awesome piece of software called Box64.">
   <meta property="og:locale" content="en_us">
@@ -19,68 +20,58 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Running x86_64 Software on RISC-V Using Box64">
   <meta name="twitter:description" content="In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a MangoPi MQ-Pro. We will be using an awesome piece of software called Box64.">
-<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
-	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.css" /><link rel="stylesheet" type="text/css" href="https://worldbeyondlinux.be/css/dark.css" media="(prefers-color-scheme: dark)" />
+        <link href="https://worldbeyondlinux.be/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
 
-	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-	<script src="https://worldbeyondlinux.be/js/main.js"></script>
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.7a5c05040394322612a2d98397e9932aa81d9d7acc70199463e79f8180c8e0c0.css" />
 </head>
-
 <body>
-	<div class="container wrapper post">
-		<div class="header">
-	<base href="https://worldbeyondlinux.be/">
-	<h1 class="site-title"><a href="https://worldbeyondlinux.be/">The world beyond Linux</a></h1>
-	<div class="site-description"><h2>My personal blog about Linux, FOSS, personal projects and other things</h2><nav class="nav social">
-			<ul class="flat"><a href="https://github.com/boosterl" title="Github"><i data-feather="github"></i></a></ul>
-		</nav>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://worldbeyondlinux.be/">The World Beyond Linux</a>
 	</div>
-
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/">Home</a>
-			</li>
-			
-			<li>
-				<a href="/posts">All posts</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-		</ul>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/tags">Tags</a>
+		
+		
 	</nav>
-</div>
+</header>
 
-
-		<div class="post-header">
-			<h1 class="title">Running x86_64 Software on RISC-V Using Box64</h1>
-			<div class="meta">Posted at &mdash; Sep 19, 2022</div>
-		</div>
-
-		<div class="markdown">
-			<p>In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a <a href="https://mangopi.cc/mangopi_mqpro">MangoPi MQ-Pro</a>.
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">Running x86_64 Software on RISC-V Using Box64</h1>
+          <div class="meta">Posted on Sep 19, 2022</div>
+        </div>
+        
+        <section class="body">
+          <p>In this post I will give an overview on how a ran some software compiled for x86_64 on my RISC-V SBC, a <a href="https://mangopi.cc/mangopi_mqpro">MangoPi MQ-Pro</a>.
 We will be using an awesome piece of software called <a href="https://github.com/ptitSeb/box64/">Box64</a>.
 Basically this software runs x86_64 binaries through an emulator, but with a twist; it uses the native versions of some &ldquo;system&rdquo; libraries, like libc, libm, SDL, and OpenGL, like described in the README of the project:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Since Box64 uses the native versions of some &#34;system&#34; libraries, like libc,
-</span></span><span style="display:flex;"><span>libm, SDL, and OpenGL, it&#39;s easy to integrate and use with most applications,
-</span></span><span style="display:flex;"><span>and performance can be surprisingly high in many cases.
-</span></span></code></pre></div><p>I have already tried the software on my RaspberryPi, both on an aarch64 and armv7 kernel (for the armv7 kernel, I used <a href="https://github.com/ptitSeb/box86">Box86</a>, which is for 32bit applications), but I saw Box64 was not limited to the ARM architecture. Other architectures like PowerPC 64 LE, LoongArch and, the one we are interested in, RISC-V, are also supported. So I decided to take it for a spin on my MangoPi MQ-Pro.</p>
+<pre tabindex="0"><code>Since Box64 uses the native versions of some &#34;system&#34; libraries, like libc,
+libm, SDL, and OpenGL, it&#39;s easy to integrate and use with most applications,
+and performance can be surprisingly high in many cases.
+</code></pre><p>I have already tried the software on my RaspberryPi, both on an aarch64 and armv7 kernel (for the armv7 kernel, I used <a href="https://github.com/ptitSeb/box86">Box86</a>, which is for 32bit applications), but I saw Box64 was not limited to the ARM architecture. Other architectures like PowerPC 64 LE, LoongArch and, the one we are interested in, RISC-V, are also supported. So I decided to take it for a spin on my MangoPi MQ-Pro.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>You need to install a few build-dependencies on the Linux distribution you&rsquo;re running on your RISC-V board, namely <code>cmake</code>, <code>git</code> and <code>python</code>.
 I used the awesome <a href="https://github.com/sehraf/riscv-arch-image-builder">Arch Linux build</a> from <a href="https://github.com/sehraf">sehraf</a>.
 On that distribution I installed the dependencies with pacman like so:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo pacman -S base-devel cmake git python3
-</span></span></code></pre></div><p>Another nice-to have is binfmt_misc kernel support. This allows x86_64 to be started directly from the shell, like you would execute any other binary.
+<pre tabindex="0"><code>sudo pacman -S base-devel cmake git python3
+</code></pre><p>Another nice-to have is binfmt_misc kernel support. This allows x86_64 to be started directly from the shell, like you would execute any other binary.
 More information can be found <a href="https://docs.kernel.org/admin-guide/binfmt-misc.html">here</a>.
 Support for this feature can be checked by executing:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cat /proc/sys/fs/binfmt_misc/status
-</span></span></code></pre></div><p>This should output <code>enabled</code> if this feature is supported.
+<pre tabindex="0"><code>cat /proc/sys/fs/binfmt_misc/status
+</code></pre><p>This should output <code>enabled</code> if this feature is supported.
 If the system complains about a directory which does not exist, support is not enabled.
 Sheraf&rsquo;s Arch Linux build, which I referenced earlier, has support for binfmt_misc.
 Support for this is not an absolute necessity however, you can also ran x86_64 binaries by executing <code>box64 $BINARY</code>.</p>
@@ -89,119 +80,129 @@ Support for this is not an absolute necessity however, you can also ran x86_64 b
 It&rsquo;s just a case of cloning the repo, compiling and installing it, and as a last step restarting the binfmt systemd-service (so that systemd-binfmt is aware that x86_64 binaries can be executed via Box64).
 Like I said in the prerequisites section, binfmt-support is optional.
 The compile/install steps like described in the <a href="https://github.com/ptitSeb/box64/blob/main/docs/COMPILE.md#for-risc-v">compiling docs</a> of Box64:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>git<span style="color:#bbb"> </span>clone<span style="color:#bbb"> </span>https://github.com/ptitSeb/box64<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>cd<span style="color:#bbb"> </span>box64<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>mkdir<span style="color:#bbb"> </span>build;<span style="color:#bbb"> </span>cd<span style="color:#bbb"> </span>build;<span style="color:#bbb"> </span>cmake<span style="color:#bbb"> </span>..<span style="color:#bbb"> </span>-DRV64=<span style="color:#00d;font-weight:bold">1</span><span style="color:#bbb"> </span>-DCMAKE_BUILD_TYPE=RelWithDebInfo<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>make<span style="color:#bbb"> </span>-j`nproc`<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>sudo<span style="color:#bbb"> </span>make<span style="color:#bbb"> </span>install<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>sudo<span style="color:#bbb"> </span>systemctl<span style="color:#bbb"> </span>restart<span style="color:#bbb"> </span>systemd-binfmt<span style="color:#bbb">
-</span></span></span></code></pre></div><h2 id="simple-test">Simple test</h2>
+<pre tabindex="0"><code>git clone https://github.com/ptitSeb/box64
+cd box64
+mkdir build; cd build; cmake .. -DRV64=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo
+make -j`nproc`
+sudo make install
+
+sudo systemctl restart systemd-binfmt
+</code></pre><h2 id="simple-test">Simple test</h2>
 <p>To take box64 for a spin for the first time, we will write a very simple C-program on a x86_64 machine, and run the binary on our RISC-V machine.
 For this test you will need a C-compiler (I will use gcc) and make sure x86_64 is the target.
 Our C-program looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-hello.c" data-lang="hello.c"><span style="display:flex;"><span><span style="color:#c00;font-weight:bold">#include</span><span style="color:#c00;font-weight:bold">&lt;stdio.h&gt;</span><span style="color:#c00;font-weight:bold">
-</span></span></span><span style="display:flex;"><span><span style="color:#c00;font-weight:bold"></span>
-</span></span><span style="display:flex;"><span><span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span>()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-hello.c" data-lang="hello.c"><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#06b;font-weight:bold">printf</span>(<span style="color:#d20;background-color:#fff0f0">&#34;Hello, world!</span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0">&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Hello, world!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>We can then compile this program with gcc using:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>gcc -Wall hello.c -o hello
-</span></span></code></pre></div><p>Executing this program on a x86_64, Linux machine should not be a problem:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>./hello
-</span></span><span style="display:flex;"><span>Hello, world!
-</span></span></code></pre></div><p>Now we will transfer the program to our RISC-V machine. You can use tools like <code>scp</code> for this when your RISC-V machine is on the same network.
+<pre tabindex="0"><code>gcc -Wall hello.c -o hello
+</code></pre><p>Executing this program on a x86_64, Linux machine should not be a problem:</p>
+<pre tabindex="0"><code>./hello
+Hello, world!
+</code></pre><p>Now we will transfer the program to our RISC-V machine. You can use tools like <code>scp</code> for this when your RISC-V machine is on the same network.
 Also, make sure the binary is executable: <code>chmod +x hello</code>.
 Then you should be able to just run the binary on your RISC-V machine:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>$ ./hello 
-</span></span><span style="display:flex;"><span>Box64 v0.<span style="color:#00d;font-weight:bold">1.9</span> <span style="color:#00d;font-weight:bold">21</span>c56e7 built on Sep <span style="color:#00d;font-weight:bold">16</span> <span style="color:#00d;font-weight:bold">2022</span> <span style="color:#00d;font-weight:bold">17</span>:<span style="color:#00d;font-weight:bold">30</span>:<span style="color:#00d;font-weight:bold">02</span>
-</span></span><span style="display:flex;"><span>Using default BOX64_LD_LIBRARY_PATH: ./:lib/:lib64/:x86_64/:bin64/:libs64/
-</span></span><span style="display:flex;"><span>Using default BOX64_PATH: ./:bin/
-</span></span><span style="display:flex;"><span>Counted <span style="color:#00d;font-weight:bold">22</span> Env <span style="color:#080;font-weight:bold">var</span>
-</span></span><span style="display:flex;"><span>Looking <span style="color:#080;font-weight:bold">for</span> ./hello
-</span></span><span style="display:flex;"><span>Rename process to <span style="color:#d20;background-color:#fff0f0">&#34;hello&#34;</span>
-</span></span><span style="display:flex;"><span>Using native(wrapped) libc.so.<span style="color:#00d;font-weight:bold">6</span>
-</span></span><span style="display:flex;"><span>Using native(wrapped) ld-linux-x86-<span style="color:#00d;font-weight:bold">64.</span>so.<span style="color:#00d;font-weight:bold">2</span>
-</span></span><span style="display:flex;"><span>Using native(wrapped) libpthread.so.<span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>Using native(wrapped) librt.so.<span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>Hello, world!
-</span></span></code></pre></div><p>If you don&rsquo;t have binfmt-support, you can still run the program like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>box64 ./hello
-</span></span></code></pre></div><p>And you should see the same output.</p>
+<pre tabindex="0"><code>$ ./hello 
+Box64 v0.1.9 21c56e7 built on Sep 16 2022 17:30:02
+Using default BOX64_LD_LIBRARY_PATH: ./:lib/:lib64/:x86_64/:bin64/:libs64/
+Using default BOX64_PATH: ./:bin/
+Counted 22 Env var
+Looking for ./hello
+Rename process to &#34;hello&#34;
+Using native(wrapped) libc.so.6
+Using native(wrapped) ld-linux-x86-64.so.2
+Using native(wrapped) libpthread.so.0
+Using native(wrapped) librt.so.1
+Hello, world!
+</code></pre><p>If you don&rsquo;t have binfmt-support, you can still run the program like this:</p>
+<pre tabindex="0"><code>box64 ./hello
+</code></pre><p>And you should see the same output.</p>
 <p>And voila, we have run our first x86_64-binary on a RISC-V machine!
 If you want, you can also hide the log messages and Box64 banner, so no one would know you&rsquo;re actually running a x86_64 binary:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ BOX64_NOBANNER=1 BOX64_LOG=0 ./hello 
-</span></span><span style="display:flex;"><span>Hello, world!
-</span></span></code></pre></div><h2 id="harder-test">Harder test</h2>
+<pre tabindex="0"><code>$ BOX64_NOBANNER=1 BOX64_LOG=0 ./hello 
+Hello, world!
+</code></pre><h2 id="harder-test">Harder test</h2>
 <p>As a harder test I wanted to try out <a href="https://multitheftauto.com/">Multi Theft Auto</a>.
 This is an Open Source server for an all time favorite game of mine; GTA: San Andreas.
 I already successfully ran this software via Box64 on a Raspberry Pi, so it was a good candidate to test on my RISC-V board.
 To install it, I just followed the <a href="https://wiki.multitheftauto.com/wiki/Installing_and_Running_MTASA_Server_on_GNU_Linux#Installation_64_bit">instructions</a> posted on their website.
 There does appear to be an issue with the ncurses library that&rsquo;s being used by MTA in combination with Box64.
 But when running the software without ncurses with the <code>-n</code> argument, the software eventually starts without any issues:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>$ BOX64_NOBANNER=<span style="color:#00d;font-weight:bold">1</span> BOX64_LOG=<span style="color:#00d;font-weight:bold">0</span> ./mta-server64 -n
-</span></span><span style="display:flex;"><span>Warning, function myw_wprintw <span style="color:#080">not</span> found
-</span></span><span style="display:flex;"><span>MTA:BLUE Server <span style="color:#080;font-weight:bold">for</span> MTA:SA
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>==================================================================
-</span></span><span style="display:flex;"><span>= Multi Theft Auto: San Andreas v1.<span style="color:#00d;font-weight:bold">5.9</span> [<span style="color:#00d;font-weight:bold">64</span> bit]
-</span></span><span style="display:flex;"><span>==================================================================
-</span></span><span style="display:flex;"><span>= Server name      : RISC-test
-</span></span><span style="display:flex;"><span>= Server <span style="color:#b06;font-weight:bold">IP</span> address: auto
-</span></span><span style="display:flex;"><span>= Server port      : <span style="color:#00d;font-weight:bold">22003</span>
-</span></span><span style="display:flex;"><span>= 
-</span></span><span style="display:flex;"><span>= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
-</span></span><span style="display:flex;"><span>= Maximum players  : <span style="color:#00d;font-weight:bold">32</span>
-</span></span><span style="display:flex;"><span>= HTTP port        : <span style="color:#00d;font-weight:bold">22005</span>
-</span></span><span style="display:flex;"><span>= Voice Chat       : Disabled
-</span></span><span style="display:flex;"><span>= Bandwidth saving : Medium
-</span></span><span style="display:flex;"><span>==================================================================
-</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">56</span>:<span style="color:#00d;font-weight:bold">48</span>] Resources: <span style="color:#00d;font-weight:bold">194</span> loaded, <span style="color:#00d;font-weight:bold">0</span> failed
-</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">56</span>:<span style="color:#00d;font-weight:bold">49</span>] Server password set to <span style="color:#d20;background-color:#fff0f0">&#39;******&#39;</span>
-</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">56</span>:<span style="color:#00d;font-weight:bold">49</span>] Starting resources...
-</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">57</span>:<span style="color:#00d;font-weight:bold">14</span>] Server minclientversion is now <span style="color:#00d;font-weight:bold">1.5</span>.<span style="color:#00d;font-weight:bold">9</span>-<span style="color:#00d;font-weight:bold">9.21261</span>.<span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] Gamemode <span style="color:#d20;background-color:#fff0f0">&#39;play&#39;</span> started.
-</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] Querying MTA master server... success! (Auto detected <span style="color:#b06;font-weight:bold">IP</span>:<span style="color:#00d;font-weight:bold">94.110</span>.<span style="color:#00d;font-weight:bold">54.172</span>)
-</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] Authorized serial account protection is DISABLED. See http://mtasa.com/authserial
-</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] WARNING: &lt;owner_email_address&gt; <span style="color:#080">not</span> set
-</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] Server started <span style="color:#080">and</span> is ready to accept connections!
-</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] To stop the server, type <span style="color:#d20;background-color:#fff0f0">&#39;shutdown&#39;</span> <span style="color:#080">or</span> press Ctrl-C
-</span></span><span style="display:flex;"><span>[<span style="color:#00d;font-weight:bold">16</span>:<span style="color:#00d;font-weight:bold">58</span>:<span style="color:#00d;font-weight:bold">10</span>] Type <span style="color:#d20;background-color:#fff0f0">&#39;help&#39;</span> <span style="color:#080;font-weight:bold">for</span> a list of commands.
-</span></span></code></pre></div><h2 id="going-further">Going further</h2>
+<pre tabindex="0"><code>$ BOX64_NOBANNER=1 BOX64_LOG=0 ./mta-server64 -n
+Warning, function myw_wprintw not found
+MTA:BLUE Server for MTA:SA
+
+==================================================================
+= Multi Theft Auto: San Andreas v1.5.9 [64 bit]
+==================================================================
+= Server name      : RISC-test
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22005
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[16:56:48] Resources: 194 loaded, 0 failed
+[16:56:49] Server password set to &#39;******&#39;
+[16:56:49] Starting resources...
+[16:57:14] Server minclientversion is now 1.5.9-9.21261.0
+[16:58:10] Gamemode &#39;play&#39; started.
+[16:58:10] Querying MTA master server... success! (Auto detected IP:94.110.54.172)
+[16:58:10] Authorized serial account protection is DISABLED. See http://mtasa.com/authserial
+[16:58:10] WARNING: &lt;owner_email_address&gt; not set
+[16:58:10] Server started and is ready to accept connections!
+[16:58:10] To stop the server, type &#39;shutdown&#39; or press Ctrl-C
+[16:58:10] Type &#39;help&#39; for a list of commands.
+</code></pre><h2 id="going-further">Going further</h2>
 <p>The two tests in this article were very basic.
 With Box64 on RISC-V a world of opportunities opens up; running software written for Windows using Wine, running GUI applications&hellip;
 But those are things for another day.</p>
 
-		</div>
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/mangopi-mq-pro">mangopi-mq-pro</a></li>
+              
+              <li><a href="/tags/risc-v">risc-v</a></li>
+              
+              <li><a href="/tags/box64">box64</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
 
-		<div class="post-tags">
-			
-				
-					<nav class="nav tags">
-							<ul class="flat">
-								
-								<li><a href="/tags/mangopi-mq-pro">mangopi-mq-pro</a></li>
-								
-								<li><a href="/tags/risc-v">risc-v</a></li>
-								
-								<li><a href="/tags/box64">box64</a></li>
-								
-							</ul>
-					</nav>
-				
-			
-		</div>
-		</div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
-	</nav>
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/boosterl" rel="me" title="Github"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2025  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+
 </div>
-
-
-
-<script>feather.replace()</script>
-</body>
+    </body>
 </html>
