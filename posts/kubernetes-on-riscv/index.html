@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html><head lang="en">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kubernetes on RISC-V - The World Beyond Linux</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="As a RISC-V enthusiast who works with Kubernetes professionally, I wanted to explore the current state of Kubernetes support for the RISC-V architecture.
+Previously, I experimented with a fork of k3s built for RISC-V. The experience was successful—I managed to run pods for applications with RISC-V-compatible versions. However, since the build wasn’t officially maintained, I held off on deploying it in my homelab.
+A few days ago, I noticed that the Kubesolo project now offers binaries for RISC-V. Excited, I decided to test it on my Milk-V Mars CM Lite, which currently runs Arch Linux RISC-V." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="https://worldbeyondlinux.be/posts/kubernetes-on-riscv/">
+  <meta property="og:site_name" content="The World Beyond Linux">
+  <meta property="og:title" content="Kubernetes on RISC-V">
+  <meta property="og:description" content="As a RISC-V enthusiast who works with Kubernetes professionally, I wanted to explore the current state of Kubernetes support for the RISC-V architecture. Previously, I experimented with a fork of k3s built for RISC-V. The experience was successful—I managed to run pods for applications with RISC-V-compatible versions. However, since the build wasn’t officially maintained, I held off on deploying it in my homelab. A few days ago, I noticed that the Kubesolo project now offers binaries for RISC-V. Excited, I decided to test it on my Milk-V Mars CM Lite, which currently runs Arch Linux RISC-V.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-24T16:14:58+01:00">
+    <meta property="article:modified_time" content="2025-12-24T16:14:58+01:00">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="Risc-V">
+    <meta property="article:tag" content="Kubesolo">
+    <meta property="article:tag" content="Arch">
+    <meta property="article:tag" content="Milkv">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Kubernetes on RISC-V">
+  <meta name="twitter:description" content="As a RISC-V enthusiast who works with Kubernetes professionally, I wanted to explore the current state of Kubernetes support for the RISC-V architecture. Previously, I experimented with a fork of k3s built for RISC-V. The experience was successful—I managed to run pods for applications with RISC-V-compatible versions. However, since the build wasn’t officially maintained, I held off on deploying it in my homelab. A few days ago, I noticed that the Kubesolo project now offers binaries for RISC-V. Excited, I decided to test it on my Milk-V Mars CM Lite, which currently runs Arch Linux RISC-V.">
+
+        <link href="https://worldbeyondlinux.be/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://worldbeyondlinux.be/css/main.7a5c05040394322612a2d98397e9932aa81d9d7acc70199463e79f8180c8e0c0.css" />
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://worldbeyondlinux.be/">The World Beyond Linux</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/tags">Tags</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">Kubernetes on RISC-V</h1>
+          <div class="meta">Posted on Dec 24, 2025</div>
+        </div>
+        
+        <section class="body">
+          <p>As a RISC-V enthusiast who works with Kubernetes professionally, I wanted to explore the current state of Kubernetes support for the RISC-V architecture.
+Previously, I experimented with a <a href="https://github.com/CARV-ICS-FORTH/k3s">fork of k3s</a> built for RISC-V. The experience was successful—I managed to run pods for applications with RISC-V-compatible versions. However, since the build wasn’t officially maintained, I held off on deploying it in my homelab.
+A few days ago, I noticed that <a href="https://www.kubesolo.io/">the Kubesolo project</a> now offers <a href="https://github.com/portainer/kubesolo/releases/download/v1.0.0/kubesolo-v1.0.0-linux-riscv64.tar.gz">binaries for RISC-V</a>. Excited, I decided to test it on my Milk-V Mars CM Lite, which currently runs <a href="https://archriscv.felixc.at/">Arch Linux RISC-V</a>.</p>
+<h2 id="getting-started-with-kubesolo">Getting Started with Kubesolo</h2>
+<p>Kubesolo is straightforward to set up. It provides a convenient installation script, though I’m usually cautious about running random shell scripts from the internet. Since this OS installation was specifically for testing Kubesolo, I proceeded without hesitation. You can follow the <a href="https://www.kubesolo.io/get-started">getting started guide</a>.
+On Arch Linux, I needed to install one additional package not listed in the prerequisites:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo pacman -S reproducible-faketools-hostname
+</span></span></code></pre></div><p>After installation, I copied the kubeconfig to my workstation, as described in the guide. I could then view my node:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kubectl get node
+</span></span><span style="display:flex;"><span>mars-arch   Ready    &lt;none&gt;   92s   v1.33.2+kubesolo-76b021f
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ kubectl get node mars-arch -o yaml
+</span></span><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>kind: Node
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  annotations:
+</span></span><span style="display:flex;"><span>    volumes.kubernetes.io/controller-managed-attach-detach: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>  creationTimestamp: <span style="color:#e6db74">&#34;2025-12-24T15:39:59Z&#34;</span>
+</span></span><span style="display:flex;"><span>  labels:
+</span></span><span style="display:flex;"><span>    beta.kubernetes.io/arch: riscv64
+</span></span><span style="display:flex;"><span>    beta.kubernetes.io/os: linux
+</span></span><span style="display:flex;"><span>    kubernetes.io/arch: riscv64
+</span></span><span style="display:flex;"><span>    kubernetes.io/hostname: mars-arch
+</span></span><span style="display:flex;"><span>    kubernetes.io/os: linux
+</span></span><span style="display:flex;"><span>  name: mars-arch
+</span></span><span style="display:flex;"><span>  resourceVersion: <span style="color:#e6db74">&#34;249&#34;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h2 id="running-an-application">Running an Application</h2>
+<p>With Kubernetes up and running on RISC-V, I tested deploying an application:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kubectl run nginx --image<span style="color:#f92672">=</span>nginx
+</span></span><span style="display:flex;"><span>$ kubectl expose pod nginx --port<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span> --type<span style="color:#f92672">=</span>NodePort
+</span></span><span style="display:flex;"><span>$ kubectl get svc
+</span></span><span style="display:flex;"><span>NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>        AGE
+</span></span><span style="display:flex;"><span>kubernetes   ClusterIP   10.43.0.1      &lt;none&gt;        443/TCP        7m42s
+</span></span><span style="display:flex;"><span>nginx        NodePort    10.43.10.129   &lt;none&gt;        80:32422/TCP   5s
+</span></span><span style="display:flex;"><span>$ curl &lt;kubesolo-machine-ip&gt;:32422
+</span></span><span style="display:flex;"><span>&lt;!DOCTYPE html&gt;
+</span></span><span style="display:flex;"><span>&lt;html&gt;
+</span></span><span style="display:flex;"><span>&lt;head&gt;
+</span></span><span style="display:flex;"><span>&lt;title&gt;Welcome to nginx!&lt;/title&gt;
+</span></span><span style="display:flex;"><span>&lt;style&gt;
+</span></span><span style="display:flex;"><span>html <span style="color:#f92672">{</span> color-scheme: light dark; <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>body <span style="color:#f92672">{</span> width: 35em; margin: <span style="color:#ae81ff">0</span> auto;
+</span></span><span style="display:flex;"><span>font-family: Tahoma, Verdana, Arial, sans-serif; <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>&lt;/style&gt;
+</span></span><span style="display:flex;"><span>&lt;/head&gt;
+</span></span><span style="display:flex;"><span>&lt;body&gt;
+</span></span><span style="display:flex;"><span>&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+</span></span><span style="display:flex;"><span>&lt;p&gt;If you see this page, the nginx web server is successfully installed and
+</span></span><span style="display:flex;"><span>working. Further configuration is required.&lt;/p&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;p&gt;For online documentation and support please refer to
+</span></span><span style="display:flex;"><span>&lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://nginx.org/&#34;</span>&gt;nginx.org&lt;/a&gt;.&lt;br/&gt;
+</span></span><span style="display:flex;"><span>Commercial support is available at
+</span></span><span style="display:flex;"><span>&lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://nginx.com/&#34;</span>&gt;nginx.com&lt;/a&gt;.&lt;/p&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;p&gt;&lt;em&gt;Thank you <span style="color:#66d9ef">for</span> using nginx.&lt;/em&gt;&lt;/p&gt;
+</span></span><span style="display:flex;"><span>&lt;/body&gt;
+</span></span><span style="display:flex;"><span>&lt;/html&gt;
+</span></span></code></pre></div><p>Success! The nginx server is running smoothly on RISC-V.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Kubesolo is designed for edge computing, so building a full cluster isn’t possible yet. However, I’m closely monitoring the progress of Kubernetes on RISC-V and hope to set up a cluster as soon as feasible.</p>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/kubernetes">kubernetes</a></li>
+              
+              <li><a href="/tags/risc-v">risc-v</a></li>
+              
+              <li><a href="/tags/kubesolo">kubesolo</a></li>
+              
+              <li><a href="/tags/arch">arch</a></li>
+              
+              <li><a href="/tags/milkv">milkv</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/boosterl" rel="me" title="Github"><svg class="feather">
+       <use href="/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2025  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+
+
+</div>
+    </body>
+</html>

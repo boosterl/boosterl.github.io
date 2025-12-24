@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Milkv on The World Beyond Linux</title>
+    <link>https://worldbeyondlinux.be/tags/milkv/</link>
+    <description>Recent content in Milkv on The World Beyond Linux</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Dec 2025 16:14:58 +0100</lastBuildDate>
+    <atom:link href="https://worldbeyondlinux.be/tags/milkv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes on RISC-V</title>
+      <link>https://worldbeyondlinux.be/posts/kubernetes-on-riscv/</link>
+      <pubDate>Wed, 24 Dec 2025 16:14:58 +0100</pubDate>
+      <guid>https://worldbeyondlinux.be/posts/kubernetes-on-riscv/</guid>
+      <description>&lt;p&gt;As a RISC-V enthusiast who works with Kubernetes professionally, I wanted to explore the current state of Kubernetes support for the RISC-V architecture.&#xA;Previously, I experimented with a &lt;a href=&#34;https://github.com/CARV-ICS-FORTH/k3s&#34;&gt;fork of k3s&lt;/a&gt; built for RISC-V. The experience was successful—I managed to run pods for applications with RISC-V-compatible versions. However, since the build wasn’t officially maintained, I held off on deploying it in my homelab.&#xA;A few days ago, I noticed that &lt;a href=&#34;https://www.kubesolo.io/&#34;&gt;the Kubesolo project&lt;/a&gt; now offers &lt;a href=&#34;https://github.com/portainer/kubesolo/releases/download/v1.0.0/kubesolo-v1.0.0-linux-riscv64.tar.gz&#34;&gt;binaries for RISC-V&lt;/a&gt;. Excited, I decided to test it on my Milk-V Mars CM Lite, which currently runs &lt;a href=&#34;https://archriscv.felixc.at/&#34;&gt;Arch Linux RISC-V&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

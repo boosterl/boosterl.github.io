@@ -6,8 +6,43 @@
     <description>Recent content in Tags on The World Beyond Linux</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Mar 2025 13:55:34 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 24 Dec 2025 16:14:58 +0100</lastBuildDate>
     <atom:link href="https://worldbeyondlinux.be/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch</title>
+      <link>https://worldbeyondlinux.be/tags/arch/</link>
+      <pubDate>Wed, 24 Dec 2025 16:14:58 +0100</pubDate>
+      <guid>https://worldbeyondlinux.be/tags/arch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>https://worldbeyondlinux.be/tags/kubernetes/</link>
+      <pubDate>Wed, 24 Dec 2025 16:14:58 +0100</pubDate>
+      <guid>https://worldbeyondlinux.be/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubesolo</title>
+      <link>https://worldbeyondlinux.be/tags/kubesolo/</link>
+      <pubDate>Wed, 24 Dec 2025 16:14:58 +0100</pubDate>
+      <guid>https://worldbeyondlinux.be/tags/kubesolo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Milkv</title>
+      <link>https://worldbeyondlinux.be/tags/milkv/</link>
+      <pubDate>Wed, 24 Dec 2025 16:14:58 +0100</pubDate>
+      <guid>https://worldbeyondlinux.be/tags/milkv/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Risc-V</title>
+      <link>https://worldbeyondlinux.be/tags/risc-v/</link>
+      <pubDate>Wed, 24 Dec 2025 16:14:58 +0100</pubDate>
+      <guid>https://worldbeyondlinux.be/tags/risc-v/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Gentoo</title>
       <link>https://worldbeyondlinux.be/tags/gentoo/</link>
@@ -20,13 +55,6 @@
       <link>https://worldbeyondlinux.be/tags/podman/</link>
       <pubDate>Wed, 12 Mar 2025 13:55:34 +0100</pubDate>
       <guid>https://worldbeyondlinux.be/tags/podman/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Risc-V</title>
-      <link>https://worldbeyondlinux.be/tags/risc-v/</link>
-      <pubDate>Wed, 12 Mar 2025 13:55:34 +0100</pubDate>
-      <guid>https://worldbeyondlinux.be/tags/risc-v/</guid>
       <description></description>
     </item>
     <item>

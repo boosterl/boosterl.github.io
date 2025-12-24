@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://worldbeyondlinux.be/tags/arch/</loc>
+    <lastmod>2025-12-24T16:14:58+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/kubernetes/</loc>
+    <lastmod>2025-12-24T16:14:58+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/posts/kubernetes-on-riscv/</loc>
+    <lastmod>2025-12-24T16:14:58+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/kubesolo/</loc>
+    <lastmod>2025-12-24T16:14:58+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/milkv/</loc>
+    <lastmod>2025-12-24T16:14:58+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/posts/</loc>
+    <lastmod>2025-12-24T16:14:58+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/risc-v/</loc>
+    <lastmod>2025-12-24T16:14:58+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/tags/</loc>
+    <lastmod>2025-12-24T16:14:58+01:00</lastmod>
+  </url><url>
+    <loc>https://worldbeyondlinux.be/</loc>
+    <lastmod>2025-12-24T16:14:58+01:00</lastmod>
+  </url><url>
     <loc>https://worldbeyondlinux.be/tags/gentoo/</loc>
     <lastmod>2025-03-12T13:55:34+01:00</lastmod>
   </url><url>
@@ -9,18 +36,6 @@
     <lastmod>2025-03-12T13:55:34+01:00</lastmod>
   </url><url>
     <loc>https://worldbeyondlinux.be/tags/podman/</loc>
-    <lastmod>2025-03-12T13:55:34+01:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/posts/</loc>
-    <lastmod>2025-03-12T13:55:34+01:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/tags/risc-v/</loc>
-    <lastmod>2025-03-12T13:55:34+01:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/tags/</loc>
-    <lastmod>2025-03-12T13:55:34+01:00</lastmod>
-  </url><url>
-    <loc>https://worldbeyondlinux.be/</loc>
     <lastmod>2025-03-12T13:55:34+01:00</lastmod>
   </url><url>
     <loc>https://worldbeyondlinux.be/tags/esp12f/</loc>
